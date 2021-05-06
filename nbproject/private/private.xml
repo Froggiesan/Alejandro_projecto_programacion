@@ -3,16 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/clases_usuarios/Jefe.java</file>
-            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/inmobiliaria_empesa/Agenda_P.java</file>
             <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/inmobiliaria_empesa/home_jefe.java</file>
-            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/Conector_BD/empleado_BD.java</file>
             <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/inmobiliaria_empesa/Pisos_alquiler.java</file>
             <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/inmobiliaria_empesa/acceso_a_BD.java</file>
-            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/base_datos/inserts_sqlplus.sql</file>
-            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/inmobiliaria_empesa/Controlador.java</file>
+            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/inmobiliaria_empesa/addTrabajador.java</file>
             <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/inmobiliaria_empesa/Registrar.java</file>
+            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/clases_usuarios/Jefe.java</file>
+            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/inmobiliaria_empesa/Agenda_P.java</file>
+            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/Conector_BD/empleado_BD.java</file>
+            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/clases_usuarios/Trabajador.java</file>
+            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/inmobiliaria_empesa/ModificarTrabajador.java</file>
+            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/base_datos/inserts_sqlplus.sql</file>
             <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/clases_usuarios/Usuario.java</file>
+            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/clases_usuarios/test.java</file>
+            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/inmobiliaria_empesa/Controlador.java</file>
         </group>
     </open-files>
 </project-private>

@@ -109,7 +109,7 @@ public class home_jefe extends javax.swing.JFrame {
 
         icono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/treehouse_logo_icon_144791.png"))); // NOI18N
 
-        eliminarTrabajadorBotton.setText("Eliminar Trabajador");
+        eliminarTrabajadorBotton.setText("Mod Trabajador");
         eliminarTrabajadorBotton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 eliminarTrabajadorBottonActionPerformed(evt);
@@ -232,7 +232,7 @@ public class home_jefe extends javax.swing.JFrame {
 
     private void eliminarTrabajadorBottonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarTrabajadorBottonActionPerformed
         // TODO add your handling code here:
-        deleteTRabajador delete= new deleteTRabajador();
+        ModificarTrabajador delete= new ModificarTrabajador();
         delete.setVisible(true);
     }//GEN-LAST:event_eliminarTrabajadorBottonActionPerformed
 

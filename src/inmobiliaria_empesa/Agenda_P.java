@@ -1,14 +1,24 @@
 
 package inmobiliaria_empesa;
 
+import clases_usuarios.Trabajador;
+import clases_usuarios.Usuario;
 import com.sun.org.apache.xpath.internal.operations.Mod;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class Agenda_P extends javax.swing.JFrame {
 
-    
-    public Agenda_P() {
+    private Usuario ebo = new Usuario();
+    public Agenda_P() throws SQLException {
         initComponents();
+        listarUsuario();
+        
+    }
+    public void listarUsuario() throws SQLException{
+        ebo.listarUsuario(TablaUsuarios);
     }
 
     /**
@@ -22,14 +32,13 @@ public class Agenda_P extends javax.swing.JFrame {
 
         Panel_agenda = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        DatosTextField = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
         MostAllBotton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
+        TablaUsuarios = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         BuscarBoton = new javax.swing.JToggleButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -41,26 +50,23 @@ public class Agenda_P extends javax.swing.JFrame {
 
         MostAllBotton.setText("Mostrar todos");
 
-        jTable1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, null, new java.awt.Color(204, 255, 255), null, null));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TablaUsuarios.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, null, new java.awt.Color(204, 255, 255), null, null));
+        TablaUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
-
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("por:");
+        jScrollPane1.setViewportView(TablaUsuarios);
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Buscar:");
+        jLabel3.setText("Buscar por:");
 
         BuscarBoton.setText("Buscar");
         BuscarBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -68,6 +74,10 @@ public class Agenda_P extends javax.swing.JFrame {
                 BuscarBotonActionPerformed(evt);
             }
         });
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Usuarios:");
 
         javax.swing.GroupLayout Panel_agendaLayout = new javax.swing.GroupLayout(Panel_agenda);
         Panel_agenda.setLayout(Panel_agendaLayout);
@@ -77,14 +87,12 @@ public class Agenda_P extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(Panel_agendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Panel_agendaLayout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(DatosTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)
+                        .addGroup(Panel_agendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(BuscarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1))
@@ -97,14 +105,15 @@ public class Agenda_P extends javax.swing.JFrame {
             Panel_agendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_agendaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(Panel_agendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(Panel_agendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1)
-                    .addGroup(Panel_agendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(DatosTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel2)
-                        .addComponent(jLabel3)
-                        .addComponent(BuscarBoton)))
+                    .addGroup(Panel_agendaLayout.createSequentialGroup()
+                        .addGroup(Panel_agendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BuscarBoton))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
@@ -127,8 +136,7 @@ public class Agenda_P extends javax.swing.JFrame {
 
     private void BuscarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarBotonActionPerformed
         // TODO add your handling code here:
-        
-        
+
     }//GEN-LAST:event_BuscarBotonActionPerformed
 
     /**
@@ -161,22 +169,25 @@ public class Agenda_P extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Agenda_P().setVisible(true);
+                try {
+                    new Agenda_P().setVisible(true);
+                } catch (SQLException ex) {
+                    System.out.println(ex);
+                }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton BuscarBoton;
-    private javax.swing.JTextField DatosTextField;
     private javax.swing.JButton MostAllBotton;
     private javax.swing.JPanel Panel_agenda;
+    private javax.swing.JTable TablaUsuarios;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
 

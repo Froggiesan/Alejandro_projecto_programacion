@@ -6,6 +6,8 @@
 package inmobiliaria_empesa;
 
 import Atxy2k.CustomTextField.RestrictedTextField;
+import Clases_viviendas.Viviendas;
+import Clases_viviendas.fotos_vivienda;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,9 +16,13 @@ import javax.swing.JOptionPane;
  */
 public class Mod_pisos extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Mod_pisos
-     */
+    Viviendas vivi=new Viviendas();
+    Viviendas meter= new Viviendas();
+    fotos_vivienda fotos = fotos_vivienda();
+    fotos_vivienda meterFotos= fotos_vivienda();
+    
+    
+    
     public Mod_pisos() {
         initComponents();
     }
@@ -31,7 +37,7 @@ public class Mod_pisos extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        CrarButton1 = new javax.swing.JButton();
+        CrearButton1 = new javax.swing.JButton();
         BorrarBotton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         calletextField = new javax.swing.JTextField();
@@ -54,17 +60,36 @@ public class Mod_pisos extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        AceptarBorradoCheckBox = new javax.swing.JCheckBox();
         jLabel11 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        id_url1jTextField1 = new javax.swing.JTextField();
+        id_url2jTextField2 = new javax.swing.JTextField();
+        id_url3jTextField3 = new javax.swing.JTextField();
+        id_url4jTextField4 = new javax.swing.JTextField();
+        id_url5jTextField5 = new javax.swing.JTextField();
+        id_url2jButton2 = new javax.swing.JButton();
+        id_url1jButton3 = new javax.swing.JButton();
+        id_url3jButton4 = new javax.swing.JButton();
+        id_url4jButton5 = new javax.swing.JButton();
+        id_url5jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        CrarButton1.setText("Crear");
+        CrearButton1.setText("Crear");
+        CrearButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CrearButton1ActionPerformed(evt);
+            }
+        });
 
         BorrarBotton.setText("Borrar");
 
@@ -140,15 +165,6 @@ public class Mod_pisos extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jTable1);
 
-        AceptarBorradoCheckBox.setBackground(null);
-        AceptarBorradoCheckBox.setForeground(new java.awt.Color(0, 0, 0));
-        AceptarBorradoCheckBox.setText("Aceptar borrado");
-        AceptarBorradoCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AceptarBorradoCheckBoxActionPerformed(evt);
-            }
-        });
-
         jLabel11.setText("Las URL deben ser los nombres de las fotos que se quieran añadir");
 
         jButton1.setText("Refrescar");
@@ -158,21 +174,62 @@ public class Mod_pisos extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Tipo");
 
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel13.setText("ID vivienda");
+
+        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel14.setText("ID vivienda");
+
+        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel15.setText("ID vivienda");
+
+        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel16.setText("ID vivienda");
+
+        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel17.setText("ID vivienda");
+
+        id_url2jButton2.setText("✓");
+        id_url2jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                id_url2jButton2ActionPerformed(evt);
+            }
+        });
+
+        id_url1jButton3.setText("✓");
+        id_url1jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                id_url1jButton3ActionPerformed(evt);
+            }
+        });
+
+        id_url3jButton4.setText("✓");
+        id_url3jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                id_url3jButton4ActionPerformed(evt);
+            }
+        });
+
+        id_url4jButton5.setText("✓");
+        id_url4jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                id_url4jButton5ActionPerformed(evt);
+            }
+        });
+
+        id_url5jButton6.setText("✓");
+        id_url5jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                id_url5jButton6ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(277, 277, 277)
-                        .addComponent(AceptarBorradoCheckBox)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BorrarBotton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel4)
-                    .addComponent(CrarButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,79 +257,145 @@ public class Mod_pisos extends javax.swing.JFrame {
                                     .addComponent(jLabel5))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(url1textField)
-                                    .addComponent(url4textField, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+                                    .addComponent(url5textField, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+                                    .addComponent(url4textField)
                                     .addComponent(url3textField)
                                     .addComponent(url2textField)
-                                    .addComponent(url5textField)))
+                                    .addComponent(url1textField)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel11))))))
-                .addContainerGap(77, Short.MAX_VALUE))
+                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel11)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel9)
+                                            .addComponent(jLabel10))
+                                        .addGap(128, 128, 128)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(id_url1jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(id_url2jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(id_url3jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(id_url4jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(id_url5jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(id_url2jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(id_url1jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(id_url3jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(id_url4jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(id_url5jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(394, 394, 394)
+                        .addComponent(BorrarBotton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel4)
+                    .addComponent(CrearButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(url1textField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(calletextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel2)
+                                .addComponent(PreciotextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel7)
+                                .addComponent(url2textField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel8)
+                                .addComponent(url3textField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(url4textField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(url5textField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel10)))
+                                    .addComponent(jLabel9))
+                                .addGap(13, 13, 13)
+                                .addComponent(jLabel11)))
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(url1textField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(calletextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel2)
-                        .addComponent(PreciotextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel7)
-                        .addComponent(url2textField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel8)
-                        .addComponent(url3textField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(url4textField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(url5textField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel10)))
-                            .addComponent(jLabel9))
-                        .addGap(13, 13, 13)
-                        .addComponent(jLabel11)))
-                .addGap(1, 1, 1)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CrarButton1)
+                            .addComponent(jLabel13)
+                            .addComponent(id_url1jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(id_url1jButton3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel14)
+                            .addComponent(id_url2jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(id_url2jButton2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel15)
+                            .addComponent(id_url3jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(id_url3jButton4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel16)
+                            .addComponent(id_url4jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(id_url4jButton5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel17)
+                            .addComponent(id_url5jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(id_url5jButton6))))
+                .addGap(24, 24, 24)
+                .addComponent(CrearButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AceptarBorradoCheckBox)
                     .addComponent(BorrarBotton)
                     .addComponent(jButton1))
-                .addContainerGap(234, Short.MAX_VALUE))
+                .addContainerGap(211, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -297,10 +420,6 @@ public class Mod_pisos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_url4textFieldActionPerformed
 
-    private void AceptarBorradoCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarBorradoCheckBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AceptarBorradoCheckBoxActionPerformed
-
     private void PreciotextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PreciotextFieldActionPerformed
         // TODO add your handling code here:
         
@@ -320,6 +439,103 @@ public class Mod_pisos extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_PreciotextFieldKeyTyped
+
+    private void CrearButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearButton1ActionPerformed
+        // TODO add your handling code here:
+        String calle=calletextField.getText();
+        String descripcion=DescripcionTextArea1.getText();
+        int precio=Integer.parseInt(PreciotextField.getText());
+        
+        vivi.setCalle(calle);
+        vivi.setDescripcion(descripcion);
+        vivi.setPrecio(precio);
+        try {
+            meter.agregarVivienda(vivi);
+            JOptionPane.showMessageDialog(null, "Has agregado la vivienda");
+        } catch (Exception e) {
+            System.out.println("Ups, algo ha fallado");
+        }
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_CrearButton1ActionPerformed
+
+    private void id_url1jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id_url1jButton3ActionPerformed
+        // TODO add your handling code here:
+        int id_vivienda=Integer.parseInt(id_url1jTextField1.getText());
+        String url1=url1textField.getText();
+        fotos.setId_vivienda(id_vivienda);
+        fotos.setURL_foto(url1);
+        try {
+            meterFotos.agregarFotosVivienda(fotos);
+            JOptionPane.showMessageDialog(null, "Has agregado la foto");
+
+        } catch (Exception e) {
+            System.out.println("Ups, algo ha fallado");
+        }
+    }//GEN-LAST:event_id_url1jButton3ActionPerformed
+
+    private void id_url2jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id_url2jButton2ActionPerformed
+        // TODO add your handling code here:
+        int id_vivienda=Integer.parseInt(id_url2jTextField2.getText());
+        String url=url2textField.getText();
+        fotos.setId_vivienda(id_vivienda);
+        fotos.setURL_foto(url);
+        try {
+            meterFotos.agregarFotosVivienda(fotos);
+            JOptionPane.showMessageDialog(null, "Has agregado la foto");
+
+        } catch (Exception e) {
+            System.out.println("Ups, algo ha fallado");
+        }
+    }//GEN-LAST:event_id_url2jButton2ActionPerformed
+
+    private void id_url3jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id_url3jButton4ActionPerformed
+        // TODO add your handling code here:
+        int id_vivienda=Integer.parseInt(id_url3jTextField3.getText());
+        String url=url3textField.getText();
+        fotos.setId_vivienda(id_vivienda);
+        fotos.setURL_foto(url);
+        try {
+            meterFotos.agregarFotosVivienda(fotos);
+            JOptionPane.showMessageDialog(null, "Has agregado la foto");
+
+        } catch (Exception e) {
+            System.out.println("Ups, algo ha fallado");
+        }
+    }//GEN-LAST:event_id_url3jButton4ActionPerformed
+
+    private void id_url4jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id_url4jButton5ActionPerformed
+        // TODO add your handling code here:
+        int id_vivienda=Integer.parseInt(id_url4jTextField4.getText());
+        String url=url4textField.getText();
+        fotos.setId_vivienda(id_vivienda);
+        fotos.setURL_foto(url);
+        try {
+            meterFotos.agregarFotosVivienda(fotos);
+            JOptionPane.showMessageDialog(null, "Has agregado la foto");
+
+        } catch (Exception e) {
+            System.out.println("Ups, algo ha fallado");
+        }
+    }//GEN-LAST:event_id_url4jButton5ActionPerformed
+
+    private void id_url5jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id_url5jButton6ActionPerformed
+        // TODO add your handling code here:
+        int id_vivienda=Integer.parseInt(id_url5jTextField5.getText());
+        String url=url5textField.getText();
+        fotos.setId_vivienda(id_vivienda);
+        fotos.setURL_foto(url);
+        try {
+            meterFotos.agregarFotosVivienda(fotos);
+            JOptionPane.showMessageDialog(null, "Has agregado la foto");
+
+        } catch (Exception e) {
+            System.out.println("Ups, algo ha fallado");
+        }
+    }//GEN-LAST:event_id_url5jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -357,18 +573,32 @@ public class Mod_pisos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox AceptarBorradoCheckBox;
     private javax.swing.JButton BorrarBotton;
-    private javax.swing.JButton CrarButton1;
+    private javax.swing.JButton CrearButton1;
     private javax.swing.JTextArea DescripcionTextArea1;
     private javax.swing.JTextField PreciotextField;
     private javax.swing.JTextField calletextField;
+    private javax.swing.JButton id_url1jButton3;
+    private javax.swing.JTextField id_url1jTextField1;
+    private javax.swing.JButton id_url2jButton2;
+    private javax.swing.JTextField id_url2jTextField2;
+    private javax.swing.JButton id_url3jButton4;
+    private javax.swing.JTextField id_url3jTextField3;
+    private javax.swing.JButton id_url4jButton5;
+    private javax.swing.JTextField id_url4jTextField4;
+    private javax.swing.JButton id_url5jButton6;
+    private javax.swing.JTextField id_url5jTextField5;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -387,4 +617,8 @@ public class Mod_pisos extends javax.swing.JFrame {
     private javax.swing.JTextField url4textField;
     private javax.swing.JTextField url5textField;
     // End of variables declaration//GEN-END:variables
+
+    private fotos_vivienda fotos_vivienda() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

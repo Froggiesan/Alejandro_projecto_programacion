@@ -5,7 +5,11 @@
  */
 package clases_usuarios;
 
+import inmobiliaria_empesa.Controlador;
+import inmobiliaria_empesa.acceso_a_BD;
+import java.sql.Connection;
 import java.util.Date;
+import clases_usuarios.Trabajador;
 
 public class Jefe extends Usuario {
     private final int id_jefe;
@@ -56,6 +60,7 @@ public class Jefe extends Usuario {
     public void setVentas(int ventas) {
         this.ventas = ventas;
     }
+    
 
     @Override
     public String toString() {

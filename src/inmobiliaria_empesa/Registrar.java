@@ -6,6 +6,7 @@
 package inmobiliaria_empesa;
 
 import Atxy2k.CustomTextField.RestrictedTextField;
+import clases_usuarios.Usuario;
 import javax.swing.JOptionPane;
 
 /**
@@ -41,18 +42,18 @@ public class Registrar extends javax.swing.JFrame {
         apellido2TextField3 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         telefonoTextField4 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        sexoComboBox1 = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         MailField = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        registrarYSalirBotton = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        añoJField = new javax.swing.JTextField();
+        edadtextfield = new javax.swing.JTextField();
         jCheckBox1 = new javax.swing.JCheckBox();
         jButton2 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         nickTextField = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        ContrasenajTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -114,37 +115,37 @@ public class Registrar extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("Sexo");
-
-        sexoComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "H", "M" }));
-
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Mail");
 
         MailField.setBackground(new java.awt.Color(255, 255, 255));
-
-        jButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jButton1.setText("Registrar y salir");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        MailField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                MailFieldActionPerformed(evt);
+            }
+        });
+
+        registrarYSalirBotton.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        registrarYSalirBotton.setText("Registrar y salir");
+        registrarYSalirBotton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registrarYSalirBottonActionPerformed(evt);
             }
         });
 
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Edad");
 
-        añoJField.setBackground(new java.awt.Color(255, 255, 255));
-        añoJField.setForeground(new java.awt.Color(0, 0, 0));
-        añoJField.addActionListener(new java.awt.event.ActionListener() {
+        edadtextfield.setBackground(new java.awt.Color(255, 255, 255));
+        edadtextfield.setForeground(new java.awt.Color(0, 0, 0));
+        edadtextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                añoJFieldActionPerformed(evt);
+                edadtextfieldActionPerformed(evt);
             }
         });
-        añoJField.addKeyListener(new java.awt.event.KeyAdapter() {
+        edadtextfield.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                añoJFieldKeyTyped(evt);
+                edadtextfieldKeyTyped(evt);
             }
         });
 
@@ -162,6 +163,11 @@ public class Registrar extends javax.swing.JFrame {
                 nickTextFieldActionPerformed(evt);
             }
         });
+
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setText("Contraseña");
+
+        ContrasenajTextField1.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -191,20 +197,19 @@ public class Registrar extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
-                        .addComponent(jButton1)))
+                        .addComponent(registrarYSalirBotton)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel6)
-                        .addComponent(jLabel8)
-                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(nickTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
-                        .addComponent(MailField)
-                        .addComponent(jLabel9)
-                        .addComponent(añoJField))
-                    .addComponent(jLabel7)
-                    .addComponent(sexoComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nickTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
+                    .addComponent(MailField)
+                    .addComponent(jLabel9)
+                    .addComponent(edadtextfield)
+                    .addComponent(ContrasenajTextField1)
+                    .addComponent(jLabel7))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -244,12 +249,12 @@ public class Registrar extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(añoJField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(edadtextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(sexoComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                        .addComponent(ContrasenajTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jCheckBox1)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -257,7 +262,7 @@ public class Registrar extends javax.swing.JFrame {
                                 .addComponent(jButton2))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
+                        .addComponent(registrarYSalirBotton)
                         .addContainerGap())))
         );
 
@@ -279,9 +284,9 @@ public class Registrar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nickTextFieldActionPerformed
 
-    private void añoJFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_añoJFieldKeyTyped
+    private void edadtextfieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edadtextfieldKeyTyped
         // TODO add your handling code here:
-        RestrictedTextField r= new RestrictedTextField(añoJField);
+        RestrictedTextField r= new RestrictedTextField(edadtextfield);
         r.setLimit(4);
         char validar = evt.getKeyChar();
 
@@ -291,11 +296,11 @@ public class Registrar extends javax.swing.JFrame {
 
             JOptionPane.showMessageDialog(rootPane,"Ingresar solo números");
         }
-    }//GEN-LAST:event_añoJFieldKeyTyped
+    }//GEN-LAST:event_edadtextfieldKeyTyped
 
-    private void añoJFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añoJFieldActionPerformed
+    private void edadtextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edadtextfieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_añoJFieldActionPerformed
+    }//GEN-LAST:event_edadtextfieldActionPerformed
 
     private void telefonoTextField4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_telefonoTextField4KeyTyped
         // TODO add your handling code here:
@@ -361,9 +366,42 @@ public class Registrar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nombreTextField1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void registrarYSalirBottonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarYSalirBottonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        
+        Usuario usu=new Usuario();
+        Usuario meter=new Usuario();
+        String nombre=nombreTextField1.getText();
+        String nick=nickTextField.getText();
+        String contrasena=ContrasenajTextField1.getText();
+        int edad=Integer.parseInt(edadtextfield.getText());
+        String apellido1=apellido1TextField2.getText();
+        String apellido2=apellido2TextField3.getText();
+        String correo=MailField.getText();
+        String num_telefono=telefonoTextField4.getText();
+        
+        usu.setNombre(nombre);
+        usu.setApellido1(apellido1);
+        usu.setApellido2(apellido2);
+        usu.setCorreo(correo);
+        usu.setContrasena(contrasena);
+        usu.setNumero_telefono(num_telefono);
+        usu.setNick(nick);
+        usu.setFecha_nacimiento(edad);
+        try {
+            meter.agregarUsuario(usu);
+            JOptionPane.showMessageDialog(null,"Te has hecho socio");
+            this.setVisible(false);
+        } catch (Exception e) {
+            System.out.println("Ha fallado");
+        }
+        
+        
+    }//GEN-LAST:event_registrarYSalirBottonActionPerformed
+
+    private void MailFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MailFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MailFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -403,11 +441,11 @@ public class Registrar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField ContrasenajTextField1;
     private javax.swing.JTextField MailField;
     private javax.swing.JTextField apellido1TextField2;
     private javax.swing.JTextField apellido2TextField3;
-    private javax.swing.JTextField añoJField;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTextField edadtextfield;
     private javax.swing.JButton jButton2;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
@@ -424,7 +462,7 @@ public class Registrar extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nickTextField;
     private javax.swing.JTextField nombreTextField1;
-    private javax.swing.JComboBox<String> sexoComboBox1;
+    private javax.swing.JButton registrarYSalirBotton;
     private javax.swing.JTextField telefonoTextField4;
     // End of variables declaration//GEN-END:variables
 }

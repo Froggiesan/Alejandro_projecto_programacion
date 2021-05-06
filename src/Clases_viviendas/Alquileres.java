@@ -11,10 +11,14 @@ package Clases_viviendas;
  */
 public class Alquileres extends Viviendas {
     private int id_alquiler;
+    private int id_viviendas;
     public Alquileres(String calle, int id, String descripcion,int id_alquiler) {
         super(calle, id, descripcion);
         this.id_alquiler=id_alquiler;
         
+        
+    }
+    public Alquileres(){
         
     }
     @Override
@@ -30,6 +34,22 @@ public class Alquileres extends Viviendas {
     @Override
     public void rellenar_formulario_cita() {
         super.rellenar_formulario_cita(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public int getId_alquiler() {
+        return id_alquiler;
+    }
+
+    public void setId_alquiler(int id_alquiler) {
+        this.id_alquiler = id_alquiler;
+    }
+
+    public int getId_viviendas() {
+        return id_viviendas;
+    }
+
+    public void setId_viviendas(int id_viviendas) {
+        this.id_viviendas = id_viviendas;
     }
     
     
