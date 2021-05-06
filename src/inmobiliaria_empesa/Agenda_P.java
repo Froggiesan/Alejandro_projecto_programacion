@@ -4,9 +4,11 @@ package inmobiliaria_empesa;
 import clases_usuarios.Trabajador;
 import clases_usuarios.Usuario;
 import com.sun.org.apache.xpath.internal.operations.Mod;
+import java.awt.Component;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JTable;
 
 
 public class Agenda_P extends javax.swing.JFrame {
@@ -14,13 +16,14 @@ public class Agenda_P extends javax.swing.JFrame {
     private Usuario ebo = new Usuario();
     public Agenda_P() throws SQLException {
         initComponents();
-        listarUsuario();
+        
+        
         
     }
-    public void listarUsuario() throws SQLException{
+    public void listarUsuario(JTable TablaUsuarios) throws SQLException{
         ebo.listarUsuario(TablaUsuarios);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -46,7 +49,7 @@ public class Agenda_P extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo_empresa/64.png"))); // NOI18N
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "1º Apellido", "2º Apellido", "Correo", "Telefono" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Null", " ", "Nombre", "1º Apellido", "Edad" }));
 
         MostAllBotton.setText("Mostrar todos");
 
@@ -62,6 +65,7 @@ public class Agenda_P extends javax.swing.JFrame {
 
             }
         ));
+        listarUsuario(tablaUsuarios);
         jScrollPane1.setViewportView(TablaUsuarios);
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -135,7 +139,7 @@ public class Agenda_P extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BuscarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarBotonActionPerformed
-        // TODO add your handling code here:
+        
 
     }//GEN-LAST:event_BuscarBotonActionPerformed
 
@@ -167,15 +171,18 @@ public class Agenda_P extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
                     new Agenda_P().setVisible(true);
+                    
                 } catch (SQLException ex) {
                     System.out.println(ex);
                 }
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

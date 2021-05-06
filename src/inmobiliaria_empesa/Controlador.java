@@ -9,6 +9,7 @@ import javax.swing.JTable;
 import Clases_viviendas.*;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Arrays;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 public class Controlador {
@@ -263,7 +264,7 @@ public class Controlador {
         }
         return mensaje;
     }
-    public void mostrarUsuario(Connection con,JTable Tabla){
+    public String [][] mostrarUsuario(Connection con,JTable Tabla){
         DefaultTableModel model;
         String [] columnas = {"NICK","CONTRASENA","NOMBRE","APELLIDO1","APELLIDO2","CORREO","EDAD","NUM_TELEFONO","ID"};
         model = new DefaultTableModel(null,columnas);
@@ -282,16 +283,20 @@ public class Controlador {
                     filas[i] = rs.getString(i+1); //recorremos las filas
                     
                 }
+                System.out.println(Arrays.toString(filas));
                 model.addRow(filas); //agregamos las filas
                 
+                
             }
-            Tabla.setModel(model);
+            
+            
             
             
         } catch (Exception e) {
             
             JOptionPane.showMessageDialog(null, "No se ha podido mosrar la tabla");
         }
+        
     }
     public String modTrabajador(Connection con,Trabajador emp){
         PreparedStatement pst = null;

@@ -216,15 +216,12 @@ public class Usuario {
     public String toString() {
         return "Usuario{" + "nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", edad=" + edad + ", numero_telefono=" + numero_telefono + ", sexo=" + sexo + ", correo=" + correo + ", id=" + id + ", nick=" + nick + ", contrasena=" + contrasena + ", contr="+ ", mensaje=" + mensaje + '}';
     }
-    public void listarUsuario(JTable Tabla) throws SQLException{
+    public String[][] listarUsuario(JTable Tabla) throws SQLException{
         Connection conn = acceso_a_BD.getConnection();
         Controlador consulta = new Controlador();
         consulta.mostrarUsuario(conn, Tabla);
-        try {
-            conn.close();
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
+        
+        return consulta.mostrarUsuario(conn, Tabla);
         
     }
 
