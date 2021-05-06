@@ -219,7 +219,6 @@ public class Usuario {
     public String[][] listarUsuario(JTable Tabla) throws SQLException{
         Connection conn = acceso_a_BD.getConnection();
         Controlador consulta = new Controlador();
-        consulta.mostrarUsuario(conn, Tabla);
         
         return consulta.mostrarUsuario(conn, Tabla);
         

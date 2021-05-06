@@ -1,14 +1,16 @@
 
 package inmobiliaria_empesa;
-
+import java.util.*;
 import clases_usuarios.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import javax.swing.JTable;
 import Clases_viviendas.*;
+import java.awt.List;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -268,35 +270,28 @@ public class Controlador {
         DefaultTableModel model;
         String [] columnas = {"NICK","CONTRASENA","NOMBRE","APELLIDO1","APELLIDO2","CORREO","EDAD","NUM_TELEFONO","ID"};
         model = new DefaultTableModel(null,columnas);
-        
-        String sql= "SELECT * FROM USUARIO"; //sentencia
+
+        String sql= "SELECT  *  FROM \"SYSTEM\".\"USUARIOS\""; //sentencia
         String [] filas = new String[9];
         Statement st = null;
         ResultSet rs = null;
-        
+
+        ArrayList<String[]> Usuarios = new ArrayList<>();
         try {
-            
             st=con.createStatement();
             rs=st.executeQuery(sql);
             while(rs.next()){
                 for (int i = 0; i < 9; i++) {
                     filas[i] = rs.getString(i+1); //recorremos las filas
-                    
                 }
-                System.out.println(Arrays.toString(filas));
-                model.addRow(filas); //agregamos las filas
-                
-                
+                Usuarios.add(Arrays.copyOf(filas, 9));
             }
-            
-            
-            
-            
+            return Usuarios.toArray(String[][]::new);
         } catch (Exception e) {
-            
             JOptionPane.showMessageDialog(null, "No se ha podido mosrar la tabla");
+            e.printStackTrace();
         }
-        
+        return null;
     }
     public String modTrabajador(Connection con,Trabajador emp){
         PreparedStatement pst = null;

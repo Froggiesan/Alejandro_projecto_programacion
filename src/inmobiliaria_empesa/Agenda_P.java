@@ -6,9 +6,12 @@ import clases_usuarios.Usuario;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import java.awt.Component;
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 
 public class Agenda_P extends javax.swing.JFrame {
@@ -20,8 +23,17 @@ public class Agenda_P extends javax.swing.JFrame {
         
         
     }
-    public void listarUsuario(JTable TablaUsuarios) throws SQLException{
-        ebo.listarUsuario(TablaUsuarios);
+    public TableModel listarUsuario(JTable tablaUsuarios){
+        try{
+            String[][] t=ebo.listarUsuario(TablaUsuarios);
+            String [] columnas = {"NICK","CONTRASENA","NOMBRE","APELLIDO1","APELLIDO2","CORREO","EDAD","NUM_TELEFONO","ID"};
+            System.out.println(Arrays.toString(t));
+            DefaultTableModel myData = new DefaultTableModel(t,columnas );
+            return myData;
+        }catch(SQLException ex){
+            System.out.println(ex);
+        }
+        return null;
     }
     
     /**
@@ -54,18 +66,7 @@ public class Agenda_P extends javax.swing.JFrame {
         MostAllBotton.setText("Mostrar todos");
 
         TablaUsuarios.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, null, new java.awt.Color(204, 255, 255), null, null));
-        TablaUsuarios.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        listarUsuario(tablaUsuarios);
+        TablaUsuarios.setModel(listarUsuario(TablaUsuarios));
         jScrollPane1.setViewportView(TablaUsuarios);
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
