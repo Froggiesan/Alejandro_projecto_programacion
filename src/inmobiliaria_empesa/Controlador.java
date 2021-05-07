@@ -277,11 +277,11 @@ public class Controlador {
         String [] columnas = {"NICK","CONTRASENA","NOMBRE","APELLIDO1","APELLIDO2","CORREO","EDAD","NUM_TELEFONO","ID"};
         model = new DefaultTableModel(null,columnas);
 
-        String sql= "SELECT  *  FROM \"SYSTEM\".\"USUARIOS\""; //sentencia
+        String sql= "SELECT  *  FROM \"SYSTEM\".\"USUARIOS\" ORDER BY ID"; //sentencia
         String [] filas = new String[9];
         Statement st = null;
         ResultSet rs = null;
-
+        //Aqui hago el arrayList
         ArrayList<String[]> Usuarios = new ArrayList<>();
         try {
             st=con.createStatement();
