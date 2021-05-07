@@ -98,6 +98,11 @@ public class home_jefe extends javax.swing.JFrame {
 
         botonModPisos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/modificar64.png"))); // NOI18N
         botonModPisos.setText("Modificar pisos");
+        botonModPisos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonModPisosActionPerformed(evt);
+            }
+        });
 
         BCrearTrabajador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/empleado64.png"))); // NOI18N
         BCrearTrabajador.setText("Crear cuenta trabajador");
@@ -219,8 +224,13 @@ public class home_jefe extends javax.swing.JFrame {
 
     private void BCrearTrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BCrearTrabajadorActionPerformed
         // TODO add your handling code here:
-        addTrabajador add = new addTrabajador();
-        add.setVisible(true);
+        try {
+            addTrabajador add = new addTrabajador();
+            add.setVisible(true);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
         
     }//GEN-LAST:event_BCrearTrabajadorActionPerformed
 
@@ -235,6 +245,12 @@ public class home_jefe extends javax.swing.JFrame {
         ModificarTrabajador delete= new ModificarTrabajador();
         delete.setVisible(true);
     }//GEN-LAST:event_eliminarTrabajadorBottonActionPerformed
+
+    private void botonModPisosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModPisosActionPerformed
+        // TODO add your handling code here:
+        Modificar_pisos mod = new Modificar_pisos();
+        mod.setVisible(true);
+    }//GEN-LAST:event_botonModPisosActionPerformed
 
     /**
      * @param args the command line arguments

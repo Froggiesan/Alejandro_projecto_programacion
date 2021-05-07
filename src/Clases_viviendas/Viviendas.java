@@ -9,6 +9,7 @@ import inmobiliaria_empesa.Controlador;
 import inmobiliaria_empesa.acceso_a_BD;
 import java.sql.Connection;
 import java.sql.SQLException;
+import javax.swing.JTable;
 
 public class Viviendas {
     private String calle;
@@ -66,7 +67,7 @@ public class Viviendas {
     public void setPrecio(int precio) {
         this.precio = precio;
     }
-    String mensaje = "";
+    private String mensaje = "";
     public String agregarVivienda(Viviendas emp) throws SQLException{
         Connection conn;
         conn= acceso_a_BD.getConnection();
@@ -109,5 +110,11 @@ public class Viviendas {
         }
         return mensaje;
     }
-    
+   public String[][] listarViviendas(JTable Tabla) throws SQLException{
+        Connection conn = acceso_a_BD.getConnection();
+        Controlador consulta = new Controlador();
+        
+        return consulta.mostrarVivienda(conn, Tabla);
+        
+    }
 }

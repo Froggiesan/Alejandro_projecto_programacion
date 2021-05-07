@@ -6,21 +6,52 @@
 package inmobiliaria_empesa;
 
 import clases_usuarios.Trabajador;
+import clases_usuarios.Usuario;
+import java.sql.SQLException;
+import java.util.Arrays;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
  * @author Alex
  */
 public class ModificarTrabajador extends javax.swing.JFrame {
-
+    private Usuario ebo = new Usuario();
+    private Trabajador isa = new Trabajador();
+    
     /**
      * Creates new form addTrabajador
      */
     public ModificarTrabajador() {
         initComponents();
     }
-
+    public TableModel listarUsuario(JTable tablaUsuarios){
+        try{
+            String[][] t=ebo.listarUsuario(TablaUsuarios);
+            String [] columnas = {"NICK","CONTRASENA","NOMBRE","APELLIDO1","APELLIDO2","CORREO","EDAD","NUM_TELEFONO","ID"};
+            System.out.println(Arrays.toString(t));
+            DefaultTableModel myData = new DefaultTableModel(t,columnas );
+            return myData;
+        }catch(SQLException ex){
+            System.out.println(ex);
+        }
+        return null;
+    }
+    public TableModel listarTrabajador(JTable tablaUsuarios){
+        try{
+            String[][] t=isa.listarTrabajador(TablaTrabajadores);
+            String [] columnas = {"ID_USUARIO","SUELDO","VENTAS","ID_TRABAJADOR"};
+            System.out.println(Arrays.toString(t));
+            DefaultTableModel myData = new DefaultTableModel(t,columnas );
+            return myData;
+        }catch(SQLException ex){
+            System.out.println(ex);
+        }
+        return null;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,11 +64,11 @@ public class ModificarTrabajador extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        UsuariojTable1 = new javax.swing.JTable();
+        TablaUsuarios = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         deleteBotton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        TrabajdoresjTable2 = new javax.swing.JTable();
+        TablaTrabajadores = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         IDBORRARjTextField1 = new javax.swing.JTextField();
@@ -57,18 +88,8 @@ public class ModificarTrabajador extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Usuarios");
 
-        UsuariojTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(UsuariojTable1);
+        TablaUsuarios.setModel(listarUsuario(TablaUsuarios));
+        jScrollPane1.setViewportView(TablaUsuarios);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo_empresa/64.png"))); // NOI18N
 
@@ -79,18 +100,8 @@ public class ModificarTrabajador extends javax.swing.JFrame {
             }
         });
 
-        TrabajdoresjTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane2.setViewportView(TrabajdoresjTable2);
+        TablaTrabajadores.setModel(listarTrabajador(TablaTrabajadores));
+        jScrollPane2.setViewportView(TablaTrabajadores);
 
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Trabajadores");
@@ -130,7 +141,6 @@ public class ModificarTrabajador extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -157,13 +167,20 @@ public class ModificarTrabajador extends javax.swing.JFrame {
                                         .addGap(0, 0, Short.MAX_VALUE)))))
                         .addGap(91, 91, 91))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4)
-                            .addComponent(IDBORRARjTextField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(deleteBotton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(deleteBotton, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(IDBORRARjTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4))
+                                .addGap(21, 21, 21))))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,18 +206,18 @@ public class ModificarTrabajador extends javax.swing.JFrame {
                             .addComponent(IdTrabajadorTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(23, 23, 23)
                         .addComponent(ModificarButton)))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(IDBORRARjTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60)
+                        .addGap(120, 120, 120)
                         .addComponent(deleteBotton)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(jLabel2))
@@ -303,8 +320,8 @@ public class ModificarTrabajador extends javax.swing.JFrame {
     private javax.swing.JTextField IdTrabajadorTextfield;
     private javax.swing.JButton ModificarButton;
     private javax.swing.JTextField SueldojTextField2;
-    private javax.swing.JTable TrabajdoresjTable2;
-    private javax.swing.JTable UsuariojTable1;
+    private javax.swing.JTable TablaTrabajadores;
+    private javax.swing.JTable TablaUsuarios;
     private javax.swing.JTextField VentasjTextField3;
     private javax.swing.JButton deleteBotton;
     private javax.swing.JLabel jLabel1;

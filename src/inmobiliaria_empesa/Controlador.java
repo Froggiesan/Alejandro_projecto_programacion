@@ -51,6 +51,24 @@ public class Controlador {
         }
         return mensaje;
     }
+    public String agregarTrabajador(Connection con,Trabajador emp){
+        PreparedStatement pst = null;
+        String sql ="INSERT INTO \"SYSTEM\".\"TRABAJADOR\" (ID_USUARIO, SUELDO, VENTAS) VALUES (?,?,?)";
+        try {
+            pst = con.prepareStatement(sql);
+            pst.setInt(1, emp.getId_usuario());
+            pst.setInt(2, emp.getSueldo());
+            pst.setInt(3,emp.getVentas());
+            mensaje="Trabajador guardado correctamente";
+            System.out.println(mensaje);
+            pst.execute();
+            pst.close();
+            
+        } catch (Exception e) {
+            mensaje="No se ha podido guardar el trabajador \n "+e.getMessage();
+        }return mensaje;
+        
+    }
     public String modificarUsuario(Connection con,Usuario emp){
         PreparedStatement pst = null;
         String sql = "UPDATE USUARIO SET NOMBRE = ?,APELLIDO1=?,APELLIDO2=?,EDAD=?,NUM_TELEFONO = ?,CORREO = ?,SEXO = ?,NICK = ?,CONTRASENA = ?"
@@ -84,7 +102,7 @@ public class Controlador {
         try {
             pst = con.prepareStatement(sql);
             pst.setInt(1,id);
-            mensaje="borrado correctamente";
+            mensaje="Borrado correctamente";
             pst.execute();
             pst.close();
             
@@ -95,40 +113,21 @@ public class Controlador {
         }
         return mensaje;
     }
-    public String agregarTrabajador(Connection con,Trabajador emp){
-        PreparedStatement pst = null;
-        String sql ="INSERT INTO \"SYSTEM\".\"TRABAJADOR\" (ID_USUARIO, SUELDO, VENTAS)"
-                + " VALUES (?,?,?);";
-        try {
-            pst = con.prepareStatement(sql);
-            pst.setInt(1, emp.getId_usuario());
-            pst.setInt(2, emp.getSueldo());
-            pst.setInt(3,emp.getVentas());
-            mensaje="guardado correctamente";
-            System.out.println(mensaje);
-            pst.execute();
-            pst.close();
-            
-        } catch (Exception e) {
-            mensaje="no se ha podido modificar correctamente \n "+e.getMessage();
-        }return mensaje;
-        
-    }
+    
     public String agregarVivienda(Connection con,Viviendas emp) throws SQLException{
         PreparedStatement pst = null;
         String mensaje="";
-        String sql="INSERT INTO \"SYSTEM\".\"VIVIENDA\" (CALLE, DESCRIPCION, PRECIO)"
-                + " VALUES(?,?,?)";
+        String sql="INSERT INTO \"SYSTEM\".\"VIVIENDA\" (CALLE, DESCRIPCION, PRECIO) VALUES (?,?,?)";
         try {
             pst.setString(1,emp.getCalle());
             pst.setString(2, emp.getDescripcion());
             pst.setInt(3, emp.getPrecio());
-            mensaje="guardado correctamente";
+            mensaje="Vivienda guardada correctamente";
             System.out.println(mensaje);
             pst.execute();
             pst.close();
         } catch (Exception e) {
-            mensaje="no se ha podido agregar correctamente \n "+e.getMessage();
+            mensaje="No se ha podido agregar la vivienda correctamente \n "+e.getMessage();
         }
         return mensaje;
     }
@@ -295,13 +294,13 @@ public class Controlador {
     }
     public String modTrabajador(Connection con,Trabajador emp){
         PreparedStatement pst = null;
-        String sql ="UPDATE \"SYSTEM\".\"TRABAJADOR\" SET SUELDO = ?,VENTAS=?"
-                +"WHERE ID_TRABAJADOR = ?;";
+        String sql ="UPDATE \"SYSTEM\".\"TRABAJADOR\" SET SUELDO = ?, VENTAS = ? WHERE ID_TRABAJADOR= ?";
+                
         try {
             pst = con.prepareStatement(sql);
-            pst.setInt(1,emp.getId_trabajador());
-            pst.setInt(2, emp.getSueldo());
-            pst.setInt(3,emp.getVentas());
+            pst.setInt(3,emp.getId_trabajador());
+            pst.setInt(1, emp.getSueldo());
+            pst.setInt(2,emp.getVentas());
             mensaje="guardado correctamente";
             System.out.println(mensaje);
             pst.execute();
@@ -311,8 +310,61 @@ public class Controlador {
             mensaje="no se ha podido modificar correctamente \n "+e.getMessage();
         }return mensaje;
     }
+    public String [][] mostrarTrabajador(Connection con,JTable Tabla){
+        DefaultTableModel model;
+        String [] columnas = {"ID_USUARIO","SUELDO","VENTAS","ID_TRABAJADOR"};
+        model = new DefaultTableModel(null,columnas);
+
+        String sql= "SELECT  *  FROM \"SYSTEM\".\"TRABAJADOR\""; //sentencia
+        String [] filas = new String[4];
+        Statement st = null;
+        ResultSet rs = null;
+
+        ArrayList<String[]> Usuarios = new ArrayList<>();
+        try {
+            st=con.createStatement();
+            rs=st.executeQuery(sql);
+            while(rs.next()){
+                for (int i = 0; i < 4; i++) {
+                    filas[i] = rs.getString(i+1); //recorremos las filas
+                }
+                Usuarios.add(Arrays.copyOf(filas, 4));
+            }
+            return Usuarios.toArray(String[][]::new);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se ha podido mosrar la tabla");
+            e.printStackTrace();
+        }
+        return null;
+    }
     
-    
+    public String [][] mostrarVivienda(Connection con,JTable Tabla){
+        DefaultTableModel model;
+        String [] columnas = {"CALLE","DESCRIPCION","PRECIO","ID_VIVIENDA ORDER BY CALLE"};
+        model = new DefaultTableModel(null,columnas);
+
+        String sql= "SELECT  *  FROM \"SYSTEM\".\"VIVIENDA\""; //sentencia
+        String [] filas = new String[4];
+        Statement st = null;
+        ResultSet rs = null;
+
+        ArrayList<String[]> Usuarios = new ArrayList<>();
+        try {
+            st=con.createStatement();
+            rs=st.executeQuery(sql);
+            while(rs.next()){
+                for (int i = 0; i < 4; i++) {
+                    filas[i] = rs.getString(i+1); //recorremos las filas
+                }
+                Usuarios.add(Arrays.copyOf(filas, 4));
+            }
+            return Usuarios.toArray(String[][]::new);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se ha podido mostrar la tabla");
+            e.printStackTrace();
+        }
+        return null;
+    }
     
     
     

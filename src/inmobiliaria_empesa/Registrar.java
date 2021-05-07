@@ -47,9 +47,6 @@ public class Registrar extends javax.swing.JFrame {
         registrarYSalirBotton = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         edadtextfield = new javax.swing.JTextField();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jButton2 = new javax.swing.JButton();
-        jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         nickTextField = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -149,11 +146,6 @@ public class Registrar extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("?");
-
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel13.setText("Aceptar los terminos de condición y privacidad");
-
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Apodo");
 
@@ -190,13 +182,7 @@ public class Registrar extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jCheckBox1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                        .addGap(283, 380, Short.MAX_VALUE)
                         .addComponent(registrarYSalirBotton)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -254,12 +240,7 @@ public class Registrar extends javax.swing.JFrame {
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ContrasenajTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckBox1)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel13)
-                                .addComponent(jButton2))))
+                        .addGap(0, 74, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(registrarYSalirBotton)
@@ -371,6 +352,7 @@ public class Registrar extends javax.swing.JFrame {
         
         Usuario usu=new Usuario();
         Usuario meter=new Usuario();
+        //creamos variables donde entraran los datos de la interfez grafica
         String nombre=nombreTextField1.getText();
         String nick=nickTextField.getText();
         String contrasena=ContrasenajTextField1.getText();
@@ -379,7 +361,7 @@ public class Registrar extends javax.swing.JFrame {
         String apellido2=apellido2TextField3.getText();
         String correo=MailField.getText();
         String num_telefono=telefonoTextField4.getText();
-        
+        //aqui metemos los datos para el metodo
         usu.setNombre(nombre);
         usu.setApellido1(apellido1);
         usu.setApellido2(apellido2);
@@ -446,10 +428,7 @@ public class Registrar extends javax.swing.JFrame {
     private javax.swing.JTextField apellido1TextField2;
     private javax.swing.JTextField apellido2TextField3;
     private javax.swing.JTextField edadtextfield;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

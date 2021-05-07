@@ -1,5 +1,5 @@
 package inmobiliaria_empesa;
-
+import inmobiliaria_empesa.login.*;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,13 +11,15 @@ package inmobiliaria_empesa;
  * @author Alejandro y Marta
  */
 public class Home_pre_login extends javax.swing.JFrame {
-
+    boolean cerrar;
     /**
      * Creates new form panel_control
      */
     public Home_pre_login() {
         initComponents();
+        
     }
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -68,7 +70,7 @@ public class Home_pre_login extends javax.swing.JFrame {
         setLocation(new java.awt.Point(150, 150));
 
         jPanel2.setBackground(new java.awt.Color(204, 255, 204));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "InmoSA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ebrima", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "InmoSA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ebrima", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
 
         botonExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Salir.png"))); // NOI18N
         botonExit.setText("Salir");
@@ -78,18 +80,14 @@ public class Home_pre_login extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setBackground(null);
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ico_casa_venta_G.png"))); // NOI18N
         jButton3.setText("Pisos en venta");
 
-        jButton4.setBackground(null);
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/boton alquiler.png"))); // NOI18N
         jButton4.setText("Pisos en alquiler");
 
-        GoInfo.setBackground(null);
         GoInfo.setText("Quienes somos");
 
-        goLogin.setBackground(null);
         goLogin.setText("Iniciar sesion");
         goLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,7 +95,6 @@ public class Home_pre_login extends javax.swing.JFrame {
             }
         });
 
-        GoRegistrar.setBackground(null);
         GoRegistrar.setText("Hazte socio");
         GoRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,18 +116,16 @@ public class Home_pre_login extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(GoInfo)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(GoRegistrar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(goLogin))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(389, Short.MAX_VALUE))
+                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
+                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(670, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,10 +137,10 @@ public class Home_pre_login extends javax.swing.JFrame {
                     .addComponent(GoRegistrar)
                     .addComponent(goLogin))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 197, Short.MAX_VALUE)
+                .addComponent(jButton4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
                 .addComponent(botonExit)
                 .addContainerGap())
         );
@@ -172,8 +167,15 @@ public class Home_pre_login extends javax.swing.JFrame {
 
     private void goLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goLoginActionPerformed
         // TODO add your handling code here:
+        
         login entrar = new login();
+       
         entrar.setVisible(true);
+        
+        
+       
+        
+        
     }//GEN-LAST:event_goLoginActionPerformed
 
     private void GoRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GoRegistrarActionPerformed

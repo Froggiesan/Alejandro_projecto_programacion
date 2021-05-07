@@ -41,7 +41,7 @@ public class fotos_vivienda{
     public void setURL_foto(String URL_foto) {
         this.URL_foto = URL_foto;
     }
-    String mensaje="";
+    private String mensaje = "";
     public String agregarFotosVivienda(fotos_vivienda emp) throws SQLException{
         Connection conn;
         conn= acceso_a_BD.getConnection();

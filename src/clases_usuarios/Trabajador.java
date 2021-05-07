@@ -10,6 +10,7 @@ import inmobiliaria_empesa.acceso_a_BD;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Date;
+import javax.swing.JTable;
 
 
 public class Trabajador extends Usuario {
@@ -76,13 +77,13 @@ public class Trabajador extends Usuario {
     public void setId_usuario(int id_usuario) {
         this.id_usuario = id_usuario;
     }
+    private String mensaje="";
     public String agregarTrabajador(Trabajador emp) throws SQLException{
         Connection conn;
         conn= acceso_a_BD.getConnection();
         Controlador controladora = new Controlador();
-        String mensaje="";
         try {
-            mensaje = controladora.agregarUsuario(conn, emp);
+            mensaje = controladora.agregarTrabajador(conn, emp);
             
             
         } catch (Exception e) {
@@ -102,7 +103,7 @@ public class Trabajador extends Usuario {
         Connection conn;
         conn= acceso_a_BD.getConnection();
         Controlador controladora = new Controlador();
-        String mensaje="";
+       
         try {
             mensaje = controladora.modTrabajador(conn, emp);
             
@@ -124,7 +125,7 @@ public class Trabajador extends Usuario {
         Connection conn;
         conn= acceso_a_BD.getConnection();
         Controlador controladora = new Controlador();
-        String mensaje="";
+        
         try {
             mensaje = controladora.eliminarTrabajador(conn, id_trabajador);
             
@@ -149,6 +150,13 @@ public class Trabajador extends Usuario {
 
     public void setId_trabajador(int id_trabajador) {
         this.id_trabajador = id_trabajador;
+    }
+    public String[][] listarTrabajador(JTable Tabla) throws SQLException{
+        Connection conn = acceso_a_BD.getConnection();
+        Controlador consulta = new Controlador();
+        
+        return consulta.mostrarTrabajador(conn, Tabla);
+        
     }
     
 }

@@ -8,7 +8,13 @@ package inmobiliaria_empesa;
 import Atxy2k.CustomTextField.RestrictedTextField;
 import Clases_viviendas.Viviendas;
 import Clases_viviendas.fotos_vivienda;
+import clases_usuarios.Usuario;
+import java.sql.SQLException;
+import java.util.Arrays;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -20,11 +26,24 @@ public class Mod_pisos extends javax.swing.JFrame {
     Viviendas meter= new Viviendas();
     fotos_vivienda fotos = fotos_vivienda();
     fotos_vivienda meterFotos= fotos_vivienda();
-    
+    private Viviendas ebo = new Viviendas();
     
     
     public Mod_pisos() {
         initComponents();
+    }
+     
+    public TableModel listarViviendas(JTable tablaUsuarios){
+        try{
+            String[][] t=ebo.listarViviendas(TablaVivienda);
+            String [] columnas = {"NICK","CONTRASENA","NOMBRE","APELLIDO1","APELLIDO2","CORREO","EDAD","NUM_TELEFONO","ID"};
+            System.out.println(Arrays.toString(t));
+            DefaultTableModel myData = new DefaultTableModel(t,columnas );
+            return myData;
+        }catch(SQLException ex){
+            System.out.println(ex);
+        }
+        return null;
     }
 
     /**
@@ -58,8 +77,6 @@ public class Mod_pisos extends javax.swing.JFrame {
         url5textField = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jLabel11 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
@@ -80,6 +97,8 @@ public class Mod_pisos extends javax.swing.JFrame {
         id_url5jButton6 = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
         IDVivivendaDELETEjTextField1 = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        TablaVivienda = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -153,19 +172,6 @@ public class Mod_pisos extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("URL5");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane2.setViewportView(jTable1);
-
         jLabel11.setText("Las URL deben ser los nombres de las fotos que se quieran añadir");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Venta", "Alquiler", "Venta y Alquiler" }));
@@ -225,6 +231,9 @@ public class Mod_pisos extends javax.swing.JFrame {
 
         jLabel18.setForeground(new java.awt.Color(0, 0, 0));
         jLabel18.setText("ID vivienda:");
+
+        TablaVivienda.setModel(listarViviendas(TablaVivienda));
+        jScrollPane3.setViewportView(TablaVivienda);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -310,13 +319,14 @@ public class Mod_pisos extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(CrearButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(BorrarBotton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(IDVivivendaDELETEjTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(IDVivivendaDELETEjTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(BorrarBotton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -396,13 +406,14 @@ public class Mod_pisos extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel18)
-                        .addComponent(IDVivivendaDELETEjTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BorrarBotton)
-                .addContainerGap(211, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel18)
+                            .addComponent(IDVivivendaDELETEjTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(BorrarBotton))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -585,6 +596,7 @@ public class Mod_pisos extends javax.swing.JFrame {
     private javax.swing.JTextArea DescripcionTextArea1;
     private javax.swing.JTextField IDVivivendaDELETEjTextField1;
     private javax.swing.JTextField PreciotextField;
+    private javax.swing.JTable TablaVivienda;
     private javax.swing.JTextField calletextField;
     private javax.swing.JButton id_url1jButton3;
     private javax.swing.JTextField id_url1jTextField1;
@@ -617,8 +629,7 @@ public class Mod_pisos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField url1textField;
     private javax.swing.JTextField url2textField;
     private javax.swing.JTextField url3textField;
