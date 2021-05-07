@@ -125,9 +125,8 @@ public class Trabajador extends Usuario {
         Connection conn;
         conn= acceso_a_BD.getConnection();
         Controlador controladora = new Controlador();
-        
         try {
-            mensaje = controladora.eliminarTrabajador(conn, id_trabajador);
+            mensaje = controladora.eliminarTrabajador(conn, emp.getId_trabajador());
             
             
         } catch (Exception e) {
@@ -158,5 +157,6 @@ public class Trabajador extends Usuario {
         return consulta.mostrarTrabajador(conn, Tabla);
         
     }
-    
+    // comentario inutil
+            
 }

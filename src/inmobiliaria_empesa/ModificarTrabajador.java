@@ -65,7 +65,6 @@ public class ModificarTrabajador extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaUsuarios = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
         deleteBotton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         TablaTrabajadores = new javax.swing.JTable();
@@ -90,8 +89,6 @@ public class ModificarTrabajador extends javax.swing.JFrame {
 
         TablaUsuarios.setModel(listarUsuario(TablaUsuarios));
         jScrollPane1.setViewportView(TablaUsuarios);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo_empresa/64.png"))); // NOI18N
 
         deleteBotton.setText("Borrar trabajador");
         deleteBotton.addActionListener(new java.awt.event.ActionListener() {
@@ -135,9 +132,6 @@ public class ModificarTrabajador extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -219,8 +213,7 @@ public class ModificarTrabajador extends javax.swing.JFrame {
                         .addComponent(IDBORRARjTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(120, 120, 120)
                         .addComponent(deleteBotton)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addComponent(jLabel2))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -264,7 +257,9 @@ public class ModificarTrabajador extends javax.swing.JFrame {
         Trabajador ins = new Trabajador();
         int id=Integer.parseInt(IDBORRARjTextField1.getText());
         trab.setId_trabajador(id);
+        
         try {
+            System.out.println("Al boton ha llegado");
             ins.eliminarTrabajador(trab);
             JOptionPane.showMessageDialog(null, "Trabajador eliminado");
             
@@ -325,7 +320,6 @@ public class ModificarTrabajador extends javax.swing.JFrame {
     private javax.swing.JTextField VentasjTextField3;
     private javax.swing.JButton deleteBotton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

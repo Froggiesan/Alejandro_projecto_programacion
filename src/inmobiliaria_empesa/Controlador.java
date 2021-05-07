@@ -211,6 +211,7 @@ public class Controlador {
             
         } catch (SQLException e) {
             mensaje="no se ha podido borrar correctamente \n "+e.getMessage();
+            System.out.println(mensaje);
         }
         return mensaje;
     }
@@ -250,18 +251,24 @@ public class Controlador {
     }
     public String eliminarTrabajador(Connection con,int id){
         PreparedStatement pst = null;
-        String sql = " delete from trabajador where id_trabajador=?;";
+        String sql = "DELETE FROM trabajador WHERE id_trabajador = ?";
+        System.out.println(id);
+        System.out.println("aqui llega");
         try {
+            System.out.println("asd isab");
             pst = con.prepareStatement(sql);
             pst.setInt(1,id);
-            mensaje="Borrado correctamente";
+            mensaje="El trabajador ha sido borrado correctamente";
+            //Cerramos la conexion y ejecturarla
             pst.execute();
             pst.close();
-            
+            System.out.println("Ha llegado a su final");
             
             
         } catch (SQLException e) {
-            mensaje="no se ha podido borrar correctamente \n "+e.getMessage();
+            mensaje="No se ha podido borrar correctamente \n "+e.getMessage();
+            e.printStackTrace();
+            System.out.println("algo que ver");
         }
         return mensaje;
     }
