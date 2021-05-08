@@ -172,13 +172,13 @@ public class login extends javax.swing.JFrame {
             String[][] usuarios = contr.mostrarUsuario2(conn);
             String[][] trabajadores = contr.mostrarTrabajador2(conn);
             String[][] jefes = contr.mostrarJefe(conn);
+            boolean usuarioExiste=false;
             if(usuario.isEmpty() || password.isEmpty()){
             JOptionPane.showMessageDialog(null,"Algún campo esta vacio");
             }else{
                 for(String[] usu:usuarios){
                     String nickUsuario=usu[0];
                     String contrasenaUsu=usu[1];
-                    
                     if(usuario.equalsIgnoreCase(nickUsuario) && password.equalsIgnoreCase(contrasenaUsu)){
                         String idUsuario=usu[8];
                         for(String[] trab:trabajadores){
@@ -187,32 +187,29 @@ public class login extends javax.swing.JFrame {
                                 System.out.println("Entras a trabajador");
                                 home_trabajadores homeTrab = new home_trabajadores();
                                 this.setVisible(false);
+                                usuarioExiste=true;
                                 break;
                             }
                         }
                         for(String[] jefe:jefes){
                             String idjefe=jefe[0];
                             if(idjefe.equals(idjefe)){
+                                System.out.println("Estas entrando en jefe");
                                 home_jefe homeJefe = new home_jefe();
                                 homeJefe.setVisible(true);
                                 this.setVisible(false);
+                                usuarioExiste=true;
                                 break;
-                            }
-                            
+                            }     
                         }
-                        home_clientes homeCli=new home_clientes();
-                        homeCli.setVisible(true);
-                        
-                        
-                    }else{
-                        JOptionPane.showMessageDialog(null, "Su usuario o contraseña es incorrecto");
-                    }
-                
-            }
-            
-            
-            
-            
+                        if(!usuarioExiste){
+                            System.out.println("Estas entrando en clientes");
+                            home_clientes homeCli=new home_clientes();
+                            homeCli.setVisible(true);
+                        }                       
+                    }               
+                }
+                JOptionPane.showMessageDialog(null, "Su usuario o contraseña es incorrecto");
             }
         } catch (Exception e) {
             e.printStackTrace();
