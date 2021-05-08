@@ -6,6 +6,7 @@
 package inmobiliaria_empesa;
 
 import Atxy2k.CustomTextField.RestrictedTextField;
+import Clases_viviendas.Ventas;
 import Clases_viviendas.Viviendas;
 import Clases_viviendas.fotos_vivienda;
 import clases_usuarios.Usuario;
@@ -97,6 +98,7 @@ public class Modificar_pisos extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         IDVivivendaDELETEjTextField1 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -227,14 +229,27 @@ public class Modificar_pisos extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Tabla viviendas");
 
-        BorrarBotton.setText("Borrar");
+        BorrarBotton.setText("Borrar vivienda");
+        BorrarBotton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BorrarBottonActionPerformed(evt);
+            }
+        });
 
         jLabel18.setForeground(new java.awt.Color(0, 0, 0));
         jLabel18.setText("ID vivienda:");
 
+        IDVivivendaDELETEjTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IDVivivendaDELETEjTextField1ActionPerformed(evt);
+            }
+        });
+
         jLabel11.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Eliminar");
+
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo_empresa/64.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -318,14 +333,14 @@ public class Modificar_pisos extends javax.swing.JFrame {
                         .addComponent(jLabel4))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(IDVivivendaDELETEjTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(BorrarBotton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel11))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(BorrarBotton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(IDVivivendaDELETEjTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.LEADING)))
+                    .addComponent(jLabel19))
                 .addContainerGap(214, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -407,9 +422,10 @@ public class Modificar_pisos extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18)
                     .addComponent(IDVivivendaDELETEjTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BorrarBotton)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addComponent(jLabel19))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -542,15 +558,39 @@ public class Modificar_pisos extends javax.swing.JFrame {
         vivi.setCalle(calle);
         vivi.setDescripcion(descripcion);
         vivi.setPrecio(precio);
+        System.out.println("Aqui ha llegado");
         try {
             meter.agregarVivienda(vivi);
             JOptionPane.showMessageDialog(null,"Has añadido una vivienda");
             this.setVisible(false);
+            System.out.println("Ha llegado al try");
         } catch (Exception e) {
             System.out.println("Ha fallado");
         }
 
     }//GEN-LAST:event_CrearButton1ActionPerformed
+
+    private void BorrarBottonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BorrarBottonActionPerformed
+        // TODO add your handling code here:
+        Viviendas vivi = new Viviendas();
+        Viviendas meter = new Viviendas();
+        int id=Integer.parseInt(IDVivivendaDELETEjTextField1.getText());
+        vivi.setId(id);
+        //System.out.println(id);
+        try {
+            System.out.println("Al boton ha llegado");
+            meter.eliminarVivienda(vivi);
+            JOptionPane.showMessageDialog(null, "Vivienda eliminada");
+            System.out.println(id+"ha llegado al try del boton");
+            
+        } catch (Exception e) {
+            System.out.println("Ha fallado");
+        }
+    }//GEN-LAST:event_BorrarBottonActionPerformed
+
+    private void IDVivivendaDELETEjTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDVivivendaDELETEjTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_IDVivivendaDELETEjTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -616,6 +656,7 @@ public class Modificar_pisos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

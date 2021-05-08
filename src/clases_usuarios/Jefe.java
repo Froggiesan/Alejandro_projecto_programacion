@@ -10,10 +10,13 @@ import inmobiliaria_empesa.acceso_a_BD;
 import java.sql.Connection;
 import java.util.Date;
 import clases_usuarios.Trabajador;
+import java.sql.SQLException;
+import javax.swing.JTable;
 
 public class Jefe extends Usuario {
     private final int id_jefe;
     private int ventas;
+    private int sueldo;
     
     public Jefe(String nombre, String apellido1,String apellido2, int edad, String numero_telefono, String sexo, int id, String nick, String contrasena,String correo, int id_jefe,int ventas) {
         super(nombre, apellido1,apellido2, edad, numero_telefono, sexo, id, nick, contrasena,correo);
@@ -66,8 +69,22 @@ public class Jefe extends Usuario {
     public String toString() {
         return "Jefe{" + "id_jefe=" + id_jefe + ", ventas=" + ventas + '}';
     }
+
+    public int getSueldo() {
+        return sueldo;
+    }
+
+    public void setSueldo(int sueldo) {
+        this.sueldo = sueldo;
+    }
     
-    
+    public String[][] listarUsuario(JTable Tabla) throws SQLException{
+        Connection conn = acceso_a_BD.getConnection();
+        Controlador consulta = new Controlador();
+        
+        return consulta.mostrarJefe(conn);
+        
+    }
     
     
    

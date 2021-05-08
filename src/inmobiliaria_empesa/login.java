@@ -5,6 +5,7 @@ import Atxy2k.CustomTextField.RestrictedTextField;
 import com.sun.org.apache.bcel.internal.generic.AALOAD;
 import inmobiliaria_empesa.home_clientes;
 import java.awt.event.WindowEvent;
+import java.sql.Connection;
 import java.util.Date;
 import javax.swing.JOptionPane;
 
@@ -111,15 +112,11 @@ public class login extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(96, 96, 96)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(jPasswordFieldContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(103, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(jPasswordFieldContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(ingresar)
@@ -128,9 +125,9 @@ public class login extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(60, 60, 60)
+                .addGap(71, 71, 71)
                 .addComponent(jLabel1)
-                .addGap(23, 23, 23)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
@@ -168,45 +165,62 @@ public class login extends javax.swing.JFrame {
         // TODO add your handling code here:
         String usuario = jTextFieldUsuario.getText();
         String password = jPasswordFieldContraseña.getText();
-        Usuario prueba1 = new Usuario("Marta", "Martinez", "Sanchez", 24, "662474455", "M", 6, "Sasha", "1234","mail");
-        Usuario prueba5 = new Usuario("Victor", "Martinez", "Sanchez", 56, "662474255", "H", 2, "Labois", "1234","mail");
-        Trabajador t1= new Trabajador("Alex", "Martinez", "Sanchez", 32, "662474435", "H", 1, "Froggie", "1234","mail", 2, 4);
-        Trabajador t2= new Trabajador("Marta", "Martinez", "Sanchez", 22, "662474455", "M", 6, "Sasha", "1234","mail" ,1, 2);
-        Trabajador t3= new Trabajador("Victor", "Martinez", "Sanchez", 45, "662474255", "H", 2, "Labois", "1234","mail",3,15);
-        
-
-
-        Usuario[] usuarios = new Usuario[]{
-                prueba1,
-                prueba5,
-                t1,
-                t2,
-                t3,
-                };
+        Controlador contr = new Controlador();
+        try {
             
-    
-        
-        if(usuario.isEmpty() || password.isEmpty()){
+            Connection conn = acceso_a_BD.getConnection();
+            String[][] usuarios = contr.mostrarUsuario2(conn);
+            String[][] trabajadores = contr.mostrarTrabajador2(conn);
+            String[][] jefes = contr.mostrarJefe(conn);
+            if(usuario.isEmpty() || password.isEmpty()){
             JOptionPane.showMessageDialog(null,"Algún campo esta vacio");
-        }else{
-            for(Usuario os:usuarios){
-                if(usuario.equals(os.getNick()) && password.equals(os.getContrasena())){
-                    JOptionPane.showMessageDialog(null, "¡Bienvenido y buena jornada!");
-                    setCierra(true);
-                    Home_pre_login home_pre=new Home_pre_login();
-                    home_pre.setVisible(false);
-                    home_trabajadores home2 = new home_trabajadores();
-                    home2.setVisible(true);
-                    this.dispose();
-                }
+            }else{
+                for(String[] usu:usuarios){
+                    String nickUsuario=usu[0];
+                    String contrasenaUsu=usu[1];
+                    
+                    if(usuario.equalsIgnoreCase(nickUsuario) && password.equalsIgnoreCase(contrasenaUsu)){
+                        String idUsuario=usu[8];
+                        for(String[] trab:trabajadores){
+                            String idtrab=trab[0];
+                            if(idtrab.equals(idtrab)){
+                                System.out.println("Entras a trabajador");
+                                home_trabajadores homeTrab = new home_trabajadores();
+                                this.setVisible(false);
+                                break;
+                            }
+                        }
+                        for(String[] jefe:jefes){
+                            String idjefe=jefe[0];
+                            if(idjefe.equals(idjefe)){
+                                home_jefe homeJefe = new home_jefe();
+                                homeJefe.setVisible(true);
+                                this.setVisible(false);
+                                break;
+                            }
+                            
+                        }
+                        home_clientes homeCli=new home_clientes();
+                        homeCli.setVisible(true);
+                        
+                        
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Su usuario o contraseña es incorrecto");
+                    }
                 
             }
             
-            JOptionPane.showMessageDialog(null, "Su usuario o contraseña es incorrecto");
-            setCierra(false);
-            this.dispose();
+            
+            
             
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    
+        
+        
                 
             
             

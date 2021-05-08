@@ -5,6 +5,11 @@
  */
 package Clases_viviendas;
 
+import inmobiliaria_empesa.Controlador;
+import inmobiliaria_empesa.acceso_a_BD;
+import java.sql.Connection;
+import java.sql.SQLException;
+
 /**
  *
  * @author Alejandro y Marta
@@ -51,7 +56,28 @@ public class Alquileres extends Viviendas {
     public void setId_viviendas(int id_viviendas) {
         this.id_viviendas = id_viviendas;
     }
-    
+    private String mensaje="";
+    public String agregarVenta(Alquileres emp) throws SQLException{
+        Connection conn;
+        conn= acceso_a_BD.getConnection();
+        Controlador controladora = new Controlador();
+        try {
+            mensaje = controladora.agregarAlquiler(conn, emp);
+            
+            
+        } catch (Exception e) {
+            mensaje = mensaje+ " "+e.getMessage();
+        }finally{
+            try {
+                if (conn != null){
+                    conn.close();
+                }
+            } catch (Exception e) {
+                mensaje = mensaje+ " "+e.getMessage();
+            }
+        }
+        return mensaje;
+    }
     
     
 }

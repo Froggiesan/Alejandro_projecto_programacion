@@ -118,14 +118,17 @@ public class Controlador {
         PreparedStatement pst = null;
         String mensaje="";
         String sql="INSERT INTO \"SYSTEM\".\"VIVIENDA\" (CALLE, DESCRIPCION, PRECIO) VALUES (?,?,?)";
+        System.out.println("Ha llegado al metodo");
         try {
             pst.setString(1,emp.getCalle());
             pst.setString(2, emp.getDescripcion());
             pst.setInt(3, emp.getPrecio());
+            
             mensaje="Vivienda guardada correctamente";
             System.out.println(mensaje);
             pst.execute();
             pst.close();
+            System.out.println("Ha llegado al try del metodo");
         } catch (Exception e) {
             mensaje="No se ha podido agregar la vivienda correctamente \n "+e.getMessage();
         }
@@ -186,7 +189,7 @@ public class Controlador {
         try {
             pst = con.prepareStatement(sql);
             pst.setInt(1,id);
-            mensaje="borrado correctamente";
+            mensaje="Foto eliminada correctamente";
             pst.execute();
             pst.close();
             
@@ -203,7 +206,7 @@ public class Controlador {
         try {
             pst = con.prepareStatement(sql);
             pst.setInt(1,id);
-            mensaje="borrado correctamente";
+            mensaje="Alquiler eliminado correctamente";
             pst.execute();
             pst.close();
             
@@ -221,7 +224,7 @@ public class Controlador {
         try {
             pst = con.prepareStatement(sql);
             pst.setInt(1,id);
-            mensaje="borrado correctamente";
+            mensaje="Venta eliminada correctamente";
             pst.execute();
             pst.close();
             
@@ -234,18 +237,26 @@ public class Controlador {
     }
     public String eliminarVivienda(Connection con,int id){
         PreparedStatement pst = null;
-        String sql = "DELETE FROM VIVIENDA WHERE ID = ?;";
+        String sql = "DELETE FROM vivienda WHERE id = ?";
+        System.out.println(id);
+        System.out.println("aqui llega");
         try {
+            System.out.println("Estas dentro del try del metodo controlador");
             pst = con.prepareStatement(sql);
             pst.setInt(1,id);
-            mensaje="borrado correctamente";
+            mensaje="La vivienda ha sido borrada correctamente";
+            System.out.println(mensaje);
+            //Cerramos la conexion y ejecturarla
             pst.execute();
             pst.close();
+            System.out.println("Ha llegado a su final"+id);
             
             
             
         } catch (SQLException e) {
-            mensaje="no se ha podido borrar correctamente \n "+e.getMessage();
+            mensaje="No se ha podido borrar correctamente \n "+e.getMessage();
+            e.printStackTrace();
+            System.out.println("Comprobación");
         }
         return mensaje;
     }
@@ -373,9 +384,88 @@ public class Controlador {
         return null;
     }
     
-    
-    
-    
+    public String [][] mostrarJefe(Connection con){
+        DefaultTableModel model;
+        String [] columnas = {"ID_USUARIO","SUELDO","VENTAS","ID_JEFE"};
+        model = new DefaultTableModel(null,columnas);
+
+        String sql= "SELECT  *  FROM \"SYSTEM\".\"JEFE\""; //sentencia
+        String [] filas = new String[4];
+        Statement st = null;
+        ResultSet rs = null;
+        //Aqui hago el arrayList
+        ArrayList<String[]> Usuarios = new ArrayList<>();
+        try {
+            st=con.createStatement();
+            rs=st.executeQuery(sql);
+            while(rs.next()){
+                for (int i = 0; i < 4; i++) {
+                    filas[i] = rs.getString(i+1); //recorremos las filas
+                }
+                Usuarios.add(Arrays.copyOf(filas, 4));
+                
+            }
+            return Usuarios.toArray(String[][]::new);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se ha podido mosrar la tabla");
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public String [][] mostrarTrabajador2(Connection con){
+        DefaultTableModel model;
+        String [] columnas = {"ID_USUARIO","SUELDO","VENTAS","ID_TRABAJADOR"};
+        model = new DefaultTableModel(null,columnas);
+
+        String sql= "SELECT  *  FROM \"SYSTEM\".\"TRABAJADOR\""; //sentencia
+        String [] filas = new String[4];
+        Statement st = null;
+        ResultSet rs = null;
+
+        ArrayList<String[]> Usuarios = new ArrayList<>();
+        try {
+            st=con.createStatement();
+            rs=st.executeQuery(sql);
+            while(rs.next()){
+                for (int i = 0; i < 4; i++) {
+                    filas[i] = rs.getString(i+1); //recorremos las filas
+                }
+                Usuarios.add(Arrays.copyOf(filas, 4));
+            }
+            return Usuarios.toArray(String[][]::new);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se ha podido mosrar la tabla");
+            e.printStackTrace();
+        }
+        return null;
+    }
+     public String [][] mostrarUsuario2(Connection con){
+        DefaultTableModel model;
+        String [] columnas = {"NICK","CONTRASENA","NOMBRE","APELLIDO1","APELLIDO2","CORREO","EDAD","NUM_TELEFONO","ID"};
+        model = new DefaultTableModel(null,columnas);
+
+        String sql= "SELECT  *  FROM \"SYSTEM\".\"USUARIOS\" ORDER BY ID"; //sentencia
+        String [] filas = new String[9];
+        Statement st = null;
+        ResultSet rs = null;
+        //Aqui hago el arrayList
+        ArrayList<String[]> Usuarios = new ArrayList<>();
+        try {
+            st=con.createStatement();
+            rs=st.executeQuery(sql);
+            while(rs.next()){
+                for (int i = 0; i < 9; i++) {
+                    filas[i] = rs.getString(i+1); //recorremos las filas
+                }
+                Usuarios.add(Arrays.copyOf(filas, 9));
+            }
+            return Usuarios.toArray(String[][]::new);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se ha podido mosrar la tabla");
+            e.printStackTrace();
+        }
+        return null;
+    }
     
     
     

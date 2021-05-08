@@ -94,7 +94,7 @@ public class Viviendas {
         conn= acceso_a_BD.getConnection();
         Controlador controladora = new Controlador();
         try {
-            mensaje = controladora.eliminarVivienda(conn, id);
+            mensaje = controladora.eliminarVivienda(conn, emp.getId());
             
             
         } catch (Exception e) {
