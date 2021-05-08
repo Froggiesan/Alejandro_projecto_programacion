@@ -8,6 +8,7 @@ import java.awt.event.WindowEvent;
 import java.sql.Connection;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import java.util.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -183,21 +184,23 @@ public class login extends javax.swing.JFrame {
                         String idUsuario=usu[8];
                         for(String[] trab:trabajadores){
                             String idtrab=trab[0];
-                            if(idtrab.equals(idtrab)){
+                            if(idUsuario.equals(idtrab)){
                                 System.out.println("Entras a trabajador");
                                 home_trabajadores homeTrab = new home_trabajadores();
-                                this.setVisible(false);
+                                this.dispose();
+                                homeTrab.setVisible(true);
                                 usuarioExiste=true;
                                 break;
                             }
                         }
                         for(String[] jefe:jefes){
                             String idjefe=jefe[0];
-                            if(idjefe.equals(idjefe)){
+                            if(idUsuario.equals(idjefe)){
                                 System.out.println("Estas entrando en jefe");
+                                System.out.println(Arrays.toString(jefe));
                                 home_jefe homeJefe = new home_jefe();
                                 homeJefe.setVisible(true);
-                                this.setVisible(false);
+                                this.dispose();
                                 usuarioExiste=true;
                                 break;
                             }     
