@@ -117,4 +117,18 @@ public class Viviendas {
         return consulta.mostrarVivienda(conn, Tabla);
         
     }
+   public String[][] listarViviendasPrecioGaP(JTable Tabla) throws SQLException{
+        Connection conn = acceso_a_BD.getConnection();
+        Controlador consulta = new Controlador();
+        
+        return consulta.mostrarViviendaPrecioGaP(conn, Tabla);
+        
+    }
+   public String[][] listarViviendasPrecioPaG(JTable Tabla) throws SQLException{
+        Connection conn = acceso_a_BD.getConnection();
+        Controlador consulta = new Controlador();
+        
+        return consulta.mostrarViviendaPrecioPaG(conn, Tabla);
+        
+    }
 }

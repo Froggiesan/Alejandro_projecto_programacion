@@ -20,7 +20,7 @@ import java.util.*;
  *
  * @author Alejandro y Marta
  */
-public class login extends javax.swing.JFrame {
+public class login extends javax.swing.JFrame  {
 
     private boolean cierre;
     
@@ -186,6 +186,8 @@ public class login extends javax.swing.JFrame {
                             String idtrab=trab[0];
                             if(idUsuario.equals(idtrab)){
                                 System.out.println("Entras a trabajador");
+                                System.out.println(idUsuario);
+                                System.out.println(idtrab);
                                 home_trabajadores homeTrab = new home_trabajadores();
                                 this.dispose();
                                 homeTrab.setVisible(true);
@@ -197,6 +199,8 @@ public class login extends javax.swing.JFrame {
                             String idjefe=jefe[0];
                             if(idUsuario.equals(idjefe)){
                                 System.out.println("Estas entrando en jefe");
+                                System.out.println(idUsuario);
+                                System.out.println(idjefe);
                                 System.out.println(Arrays.toString(jefe));
                                 home_jefe homeJefe = new home_jefe();
                                 homeJefe.setVisible(true);
@@ -206,13 +210,16 @@ public class login extends javax.swing.JFrame {
                             }     
                         }
                         if(!usuarioExiste){
+                            usuarioExiste=true;
                             System.out.println("Estas entrando en clientes");
                             home_clientes homeCli=new home_clientes();
                             homeCli.setVisible(true);
                         }                       
                     }               
                 }
-                JOptionPane.showMessageDialog(null, "Su usuario o contraseña es incorrecto");
+                if(!usuarioExiste){
+                    JOptionPane.showMessageDialog(null, "Su usuario o contraseña es incorrecto");
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();

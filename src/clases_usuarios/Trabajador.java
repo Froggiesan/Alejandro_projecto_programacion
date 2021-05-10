@@ -157,6 +157,19 @@ public class Trabajador extends Usuario {
         return consulta.mostrarTrabajador(conn, Tabla);
         
     }
-    // comentario inutil
-            
+    
+    public String[][] listarTrabajadorVentasGaP(JTable Tabla) throws SQLException{
+        Connection conn = acceso_a_BD.getConnection();
+        Controlador consulta = new Controlador();
+        
+        return consulta.mostrarTrabVentasGaP(conn, Tabla);
+        
+    }  
+    public String[][] listarTrabajadorVentasPaG(JTable Tabla) throws SQLException{
+        Connection conn = acceso_a_BD.getConnection();
+        Controlador consulta = new Controlador();
+        
+        return consulta.mostrarTrabVentasPaG(conn, Tabla);
+        
+    }
 }

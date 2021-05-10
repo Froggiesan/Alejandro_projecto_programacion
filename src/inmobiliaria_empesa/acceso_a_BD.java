@@ -46,10 +46,10 @@ public class acceso_a_BD{
         }
     }
 
-    public static void main(String[] args) throws SQLException {
-        // Get a pooled connection
+    public static void main(String[] args) throws SQLException, Excepcionespropias{
+        // Obtenemos una conexion agrupada
         PoolDataSource pds = PoolDataSourceFactory.getPoolDataSource();
-        // Set the connection factory
+        // Establecemos las conexiones a ORacle
         pds.setConnectionFactoryClassName(CONN_FACTORY_CLASS_NAME);
         pds.setURL(DB_URL);
         pds.setUser(DB_USER);
@@ -63,11 +63,12 @@ public class acceso_a_BD{
         pds.setTimeoutCheckInterval(5);
         pds.setInactiveConnectionTimeout(10);
 
-        // Get the database connection from UCP
+        // Obtenemos la base de datos de UCP
         try (Connection conn = pds.getConnection()) {
-            //doSQLWork(conn);
+            //SQLWork(conn);
             
         } catch (Exception e){
+            System.out.println("Ha fallado la conexion, para saber mas leer la pila de errores");
             e.printStackTrace();
         }
         

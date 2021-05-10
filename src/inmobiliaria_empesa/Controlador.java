@@ -346,10 +346,16 @@ public class Controlador {
                 for (int i = 0; i < 4; i++) {
                     filas[i] = rs.getString(i+1); //recorremos las filas
                 }
+                if(Integer.parseInt(filas[1])<=15000){
+                    throw new Excepcionespropias("Cuidado, este trabajador se ha pasado de los 15k de sueldo");
+                }
                 Usuarios.add(Arrays.copyOf(filas, 4));
             }
             return Usuarios.toArray(String[][]::new);
-        } catch (Exception e) {
+        }catch(Excepcionespropias e){
+            System.out.println("Ha habido un problema al mostrar la tabla , consultar al administrador");
+        }
+        catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se ha podido mosrar la tabla");
             e.printStackTrace();
         }
@@ -466,8 +472,115 @@ public class Controlador {
         }
         return null;
     }
-    
-    
+    public String [][] mostrarTrabVentasGaP(Connection con,JTable Tabla){
+        DefaultTableModel model;
+        String [] columnas = {"ID_USUARIO","SUELDO","VENTAS","ID_JEFE ORDER BY VENTAS"};
+        model = new DefaultTableModel(null,columnas);
+
+        String sql= "SELECT  *  FROM \"SYSTEM\".\"JEFE\""; //sentencia
+        String [] filas = new String[4];
+        Statement st = null;
+        ResultSet rs = null;
+        //Aqui hago el arrayList
+        ArrayList<String[]> Usuarios = new ArrayList<>();
+        try {
+            st=con.createStatement();
+            rs=st.executeQuery(sql);
+            while(rs.next()){
+                for (int i = 0; i < 4; i++) {
+                    filas[i] = rs.getString(i+1); //recorremos las filas
+                }
+                Usuarios.add(Arrays.copyOf(filas, 4));
+                
+            }
+            return Usuarios.toArray(String[][]::new);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se ha podido mosrar la tabla");
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public String [][] mostrarTrabVentasPaG(Connection con,JTable Tabla){
+        DefaultTableModel model;
+        String [] columnas = {"ID_USUARIO","SUELDO","VENTAS","ID_TRABAJADOR ORDER BY VENTAS REVERSE"};
+        model = new DefaultTableModel(null,columnas);
+
+        String sql= "SELECT  *  FROM \"SYSTEM\".\"TRABAJADOR\""; //sentencia
+        String [] filas = new String[4];
+        Statement st = null;
+        ResultSet rs = null;
+
+        ArrayList<String[]> Usuarios = new ArrayList<>();
+        try {
+            st=con.createStatement();
+            rs=st.executeQuery(sql);
+            while(rs.next()){
+                for (int i = 0; i < 4; i++) {
+                    filas[i] = rs.getString(i+1); //recorremos las filas
+                }
+                Usuarios.add(Arrays.copyOf(filas, 4));
+            }
+            return Usuarios.toArray(String[][]::new);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se ha podido mosrar la tabla");
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public String [][] mostrarViviendaPrecioGaP(Connection con,JTable Tabla){
+        DefaultTableModel model;
+        String [] columnas = {"CALLE","DESCRIPCION","PRECIO","ID_VIVIENDA ORDER BY CALLE"};
+        model = new DefaultTableModel(null,columnas);
+
+        String sql= "SELECT  *  FROM \"SYSTEM\".\"VIVIENDA\" ORDER BY PRECIO"; //sentencia
+        String [] filas = new String[4];
+        Statement st = null;
+        ResultSet rs = null;
+
+        ArrayList<String[]> Usuarios = new ArrayList<>();
+        try {
+            st=con.createStatement();
+            rs=st.executeQuery(sql);
+            while(rs.next()){
+                for (int i = 0; i < 4; i++) {
+                    filas[i] = rs.getString(i+1); //recorremos las filas
+                }
+                Usuarios.add(Arrays.copyOf(filas, 4));
+            }
+            return Usuarios.toArray(String[][]::new);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se ha podido mostrar la tabla");
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public String [][] mostrarViviendaPrecioPaG(Connection con,JTable Tabla){
+        DefaultTableModel model;
+        String [] columnas = {"CALLE","DESCRIPCION","PRECIO","ID_VIVIENDA ORDER BY CALLE REVERSE"};
+        model = new DefaultTableModel(null,columnas);
+
+        String sql= "SELECT  *  FROM \"SYSTEM\".\"VIVIENDA\" ORDER BY PRECIO"; //sentencia
+        String [] filas = new String[4];
+        Statement st = null;
+        ResultSet rs = null;
+
+        ArrayList<String[]> Usuarios = new ArrayList<>();
+        try {
+            st=con.createStatement();
+            rs=st.executeQuery(sql);
+            while(rs.next()){
+                for (int i = 0; i < 4; i++) {
+                    filas[i] = rs.getString(i+1); //recorremos las filas
+                }
+                Usuarios.add(Arrays.copyOf(filas, 4));
+            }
+            return Usuarios.toArray(String[][]::new);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se ha podido mostrar la tabla");
+            e.printStackTrace();
+        }
+        return null;
+    }
     
     
     public Controlador(){
