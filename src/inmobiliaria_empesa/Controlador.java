@@ -491,10 +491,10 @@ public class Controlador {
     }
     public String [][] mostrarTrabVentasGaP(Connection con,JTable Tabla){
         DefaultTableModel model;
-        String [] columnas = {"ID_USUARIO","SUELDO","VENTAS","ID_TRABAJADOR ORDER BY VENTAS"};
+        String [] columnas = {"ID_USUARIO","SUELDO","VENTAS","ID_TRABAJADOR"};
         model = new DefaultTableModel(null,columnas);
 
-        String sql= "SELECT  *  FROM \"SYSTEM\".\"TRABAJADOR\" ORDER BY VENTAS"; //sentencia
+        String sql= "SELECT  *  FROM \"SYSTEM\".\"TRABAJADOR\""; //sentencia ORDER BY VENTAS
         String [] filas = new String[4];
         Statement st = null;
         ResultSet rs = null;
@@ -524,7 +524,7 @@ public class Controlador {
         String [] columnas = {"ID_USUARIO","SUELDO","VENTAS","ID_TRABAJADOR"};
         model = new DefaultTableModel(null,columnas);
 
-        String sql= "SELECT  *  FROM \"SYSTEM\".\"TRABAJADOR\" ORDER BY VENTAS REVERSE "; //sentencia
+        String sql= "SELECT  *  FROM \"SYSTEM\".\"TRABAJADOR\""; //sentencia
         String [] filas = new String[4];
         Statement st = null;
         ResultSet rs = null;
@@ -548,7 +548,7 @@ public class Controlador {
     }
     public String [][] mostrarViviendaPrecioGaP(Connection con,JTable Tabla){
         DefaultTableModel model;
-        String [] columnas = {"CALLE","DESCRIPCION","PRECIO","ID_VIVIENDA ORDER BY CALLE"};
+        String [] columnas = {"CALLE","DESCRIPCION","PRECIO","ID_VIVIENDA"};
         model = new DefaultTableModel(null,columnas);
 
         String sql= "SELECT  *  FROM \"SYSTEM\".\"VIVIENDA\" ORDER BY PRECIO"; //sentencia
