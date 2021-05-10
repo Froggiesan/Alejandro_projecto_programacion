@@ -5,6 +5,15 @@
  */
 package inmobiliaria_empesa;
 
+import Clases_viviendas.Viviendas;
+import clases_usuarios.Trabajador;
+import clases_usuarios.Usuario;
+import java.sql.SQLException;
+import java.util.Arrays;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
 /**
  *
  * @author Alejandro y Marta
@@ -14,11 +23,72 @@ public class ConsBBDD extends javax.swing.JFrame {
     /**
      * Creates new form ConsBBDD
      */
-    
+    Usuario ebo = new Usuario();
+    Viviendas ebi = new Viviendas();
+    Trabajador isa = new Trabajador();
     public ConsBBDD() {
         initComponents();
     }
-
+    public TableModel listarUsuario(JTable tablaUsuarios){
+        try{
+            String[][] t=ebo.listarUsuario(Tabla);
+            String [] columnas = {"NICK","CONTRASENA","NOMBRE","APELLIDO1","APELLIDO2","CORREO","EDAD","NUM_TELEFONO","ID"};
+            System.out.println(Arrays.toString(t));
+            DefaultTableModel myData = new DefaultTableModel(t,columnas );
+            return myData;
+        }catch(SQLException ex){
+            System.out.println(ex);
+        }
+        return null;
+    }
+    public TableModel listarViviendasGap(JTable tablaUsuarios){
+        try{
+            String[][] t=ebi.listarViviendasPrecioGaP(Tabla);
+            String [] columnas = {"CALLE","DESCRIPCION","PRECIO","ID_VIVIENDA"};
+            System.out.println(Arrays.toString(t));
+            DefaultTableModel myData = new DefaultTableModel(t,columnas );
+            return myData;
+        }catch(SQLException ex){
+            System.out.println(ex);
+        }
+        return null;
+    }
+    public TableModel listarViviendasPaG(JTable tablaUsuarios){
+        try{
+            String[][] t=ebi.listarViviendasPrecioPaG(Tabla);
+            String [] columnas = {"CALLE","DESCRIPCION","PRECIO","ID_VIVIENDA"};
+            System.out.println(Arrays.toString(t));
+            DefaultTableModel myData = new DefaultTableModel(t,columnas );
+            return myData;
+        }catch(SQLException ex){
+            System.out.println(ex);
+        }
+        return null;
+    }
+    public TableModel listarTrabajadorPag(JTable tablaUsuarios){
+        try{
+            String[][] t=isa.listarTrabajadorVentasPaG(Tabla);
+            String [] columnas = {"ID_USUARIO","SUELDO","VENTAS","ID_TRABAJADOR"};
+            System.out.println(Arrays.toString(t));
+            DefaultTableModel myData = new DefaultTableModel(t,columnas );
+            return myData;
+        }catch(SQLException ex){
+            System.out.println(ex);
+        }
+        return null;
+    }
+    public TableModel listarTrabajadorGap(JTable tablaUsuarios){
+        try{
+            String[][] t=isa.listarTrabajadorVentasGaP(Tabla);
+            String [] columnas = {"ID_USUARIO","SUELDO","VENTAS","ID_TRABAJADOR"};
+            System.out.println(Arrays.toString(t));
+            DefaultTableModel myData = new DefaultTableModel(t,columnas );
+            return myData;
+        }catch(SQLException ex){
+            System.out.println(ex);
+        }
+        return null;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,45 +99,45 @@ public class ConsBBDD extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        ventasGaP = new javax.swing.JButton();
+        PrecioPaG = new javax.swing.JButton();
+        precioGaP = new javax.swing.JButton();
+        ventasPaG = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Tabla = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        TablaValores = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setForeground(new java.awt.Color(0, 0, 0));
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Ventas.png"))); // NOI18N
-        jButton1.setText("Ventas >");
+        ventasGaP.setBackground(new java.awt.Color(255, 255, 255));
+        ventasGaP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Ventas.png"))); // NOI18N
+        ventasGaP.setText("Ventas >");
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/clientes.png"))); // NOI18N
-        jButton2.setText("Clientes");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        PrecioPaG.setBackground(new java.awt.Color(255, 255, 255));
+        PrecioPaG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasaBBDD.png"))); // NOI18N
+        PrecioPaG.setText("Valor <");
+
+        precioGaP.setBackground(new java.awt.Color(255, 255, 255));
+        precioGaP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasaBBDD.png"))); // NOI18N
+        precioGaP.setText("Valor >");
+
+        ventasPaG.setBackground(new java.awt.Color(255, 255, 255));
+        ventasPaG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Ventas.png"))); // NOI18N
+        ventasPaG.setText("Ventas <");
+        ventasPaG.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                ventasPaGActionPerformed(evt);
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(255, 255, 255));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasaBBDD.png"))); // NOI18N
-        jButton4.setText("Valor <");
+        Tabla.setModel(listarTrabajadorGap(Tabla));
+        jScrollPane1.setViewportView(Tabla);
 
-        jButton5.setBackground(new java.awt.Color(255, 255, 255));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasaBBDD.png"))); // NOI18N
-        jButton5.setText("Valor >");
-
-        jButton7.setBackground(new java.awt.Color(255, 255, 255));
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Ventas.png"))); // NOI18N
-        jButton7.setText("Ventas <");
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TablaValores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -78,40 +148,45 @@ public class ConsBBDD extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane3.setViewportView(TablaValores);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 115, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane3))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(ventasGaP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ventasPaG, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+                        .addComponent(PrecioPaG, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(precioGaP, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 26, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 39, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton7)
+                        .addComponent(ventasPaG)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1)
+                        .addComponent(ventasGaP))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(58, 58, 58)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(PrecioPaG, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(93, 93, 93))
+                        .addComponent(precioGaP, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -128,9 +203,11 @@ public class ConsBBDD extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void ventasPaGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ventasPaGActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        listarTrabajadorPag(Tabla);
+        
+    }//GEN-LAST:event_ventasPaGActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,13 +245,14 @@ public class ConsBBDD extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton7;
+    private javax.swing.JButton PrecioPaG;
+    private javax.swing.JTable Tabla;
+    private javax.swing.JTable TablaValores;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JButton precioGaP;
+    private javax.swing.JButton ventasGaP;
+    private javax.swing.JButton ventasPaG;
     // End of variables declaration//GEN-END:variables
 }

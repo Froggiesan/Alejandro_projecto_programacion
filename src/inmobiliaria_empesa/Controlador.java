@@ -357,7 +357,7 @@ public class Controlador {
                 for (int i = 0; i < 4; i++) {
                     filas[i] = rs.getString(i+1); //recorremos las filas
                 }
-                if(Integer.parseInt(filas[1])<=15000){
+                if(Integer.parseInt(filas[1])>=15000){
                     throw new Excepcionespropias("Cuidado, este trabajador se ha pasado de los 15k de sueldo");
                 }
                 Usuarios.add(Arrays.copyOf(filas, 4));
@@ -491,14 +491,16 @@ public class Controlador {
     }
     public String [][] mostrarTrabVentasGaP(Connection con,JTable Tabla){
         DefaultTableModel model;
-        String [] columnas = {"ID_USUARIO","SUELDO","VENTAS","ID_JEFE ORDER BY VENTAS"};
+        String [] columnas = {"ID_USUARIO","SUELDO","VENTAS","ID_TRABAJADOR ORDER BY VENTAS"};
         model = new DefaultTableModel(null,columnas);
 
-        String sql= "SELECT  *  FROM \"SYSTEM\".\"JEFE\""; //sentencia
+        String sql= "SELECT  *  FROM \"SYSTEM\".\"TRABAJADOR\" ORDER BY VENTAS"; //sentencia
         String [] filas = new String[4];
         Statement st = null;
         ResultSet rs = null;
         //Aqui hago el arrayList
+        
+        
         ArrayList<String[]> Usuarios = new ArrayList<>();
         try {
             st=con.createStatement();
@@ -519,10 +521,10 @@ public class Controlador {
     }
     public String [][] mostrarTrabVentasPaG(Connection con,JTable Tabla){
         DefaultTableModel model;
-        String [] columnas = {"ID_USUARIO","SUELDO","VENTAS","ID_TRABAJADOR ORDER BY VENTAS REVERSE"};
+        String [] columnas = {"ID_USUARIO","SUELDO","VENTAS","ID_TRABAJADOR"};
         model = new DefaultTableModel(null,columnas);
 
-        String sql= "SELECT  *  FROM \"SYSTEM\".\"TRABAJADOR\""; //sentencia
+        String sql= "SELECT  *  FROM \"SYSTEM\".\"TRABAJADOR\" ORDER BY VENTAS REVERSE "; //sentencia
         String [] filas = new String[4];
         Statement st = null;
         ResultSet rs = null;

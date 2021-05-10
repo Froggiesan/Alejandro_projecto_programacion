@@ -9,6 +9,7 @@ import inmobiliaria_empesa.Controlador;
 import inmobiliaria_empesa.acceso_a_BD;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.Date;
 import javax.swing.JTable;
 
@@ -168,8 +169,11 @@ public class Trabajador extends Usuario {
     public String[][] listarTrabajadorVentasPaG(JTable Tabla) throws SQLException{
         Connection conn = acceso_a_BD.getConnection();
         Controlador consulta = new Controlador();
-        
-        return consulta.mostrarTrabVentasPaG(conn, Tabla);
+        String[][] cip = consulta.mostrarTrabVentasPaG(conn, Tabla);
+        for(String[] filas:cip){
+            System.out.println(Arrays.toString(filas));
+        }
+        return cip;
         
     }
 }

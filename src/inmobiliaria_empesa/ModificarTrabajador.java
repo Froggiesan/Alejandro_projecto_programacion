@@ -44,7 +44,6 @@ public class ModificarTrabajador extends javax.swing.JFrame {
         try{
             String[][] t=isa.listarTrabajador(TablaTrabajadores);
             String [] columnas = {"ID_USUARIO","SUELDO","VENTAS","ID_TRABAJADOR"};
-            System.out.println(Arrays.toString(t));
             DefaultTableModel myData = new DefaultTableModel(t,columnas );
             return myData;
         }catch(SQLException ex){
