@@ -82,6 +82,11 @@ public class home_clientes extends javax.swing.JFrame {
         jButton4.setText("Explorar alquileres");
 
         jButton5.setText("Quienes somos");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo_empresa/64.png"))); // NOI18N
 
@@ -164,11 +169,17 @@ public class home_clientes extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        ConCita cita = new ConCita();
+        Correo_electronico_Cita cita = new Correo_electronico_Cita();
         cita.setVisible(true);
         
         
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        QuienesSomos somos = new QuienesSomos();
+        somos.setVisible(true);
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments

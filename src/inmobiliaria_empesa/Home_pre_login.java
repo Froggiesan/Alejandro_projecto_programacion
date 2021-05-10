@@ -38,12 +38,15 @@ public class Home_pre_login extends javax.swing.JFrame {
         checkbox1 = new java.awt.Checkbox();
         jPanel2 = new javax.swing.JPanel();
         botonExit = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        VentaBtn = new javax.swing.JButton();
+        AlquilerBtn = new javax.swing.JButton();
         GoInfo = new javax.swing.JButton();
         goLogin = new javax.swing.JButton();
         GoRegistrar = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         jButton1.setText("Concerta cita");
 
@@ -79,13 +82,28 @@ public class Home_pre_login extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ico_casa_venta_G.png"))); // NOI18N
-        jButton3.setText("Pisos en venta");
+        VentaBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ico_casa_venta_G.png"))); // NOI18N
+        VentaBtn.setText("Pisos en venta");
+        VentaBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VentaBtnActionPerformed(evt);
+            }
+        });
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/boton alquiler.png"))); // NOI18N
-        jButton4.setText("Pisos en alquiler");
+        AlquilerBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/boton alquiler.png"))); // NOI18N
+        AlquilerBtn.setText("Pisos en alquiler");
+        AlquilerBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AlquilerBtnActionPerformed(evt);
+            }
+        });
 
         GoInfo.setText("Quienes somos");
+        GoInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GoInfoActionPerformed(evt);
+            }
+        });
 
         goLogin.setText("Iniciar sesion");
         goLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -103,45 +121,75 @@ public class Home_pre_login extends javax.swing.JFrame {
 
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo_empresa/128.png"))); // NOI18N
 
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Tu inmobiliaria en Mallorca, Mundo Pisos");
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2.setText("Nuestro compromiso es vender tu vivienda al mejor precio y en el menor tiempo  ");
+
+        jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel3.setText("<html>Nuestra amplia experiencia en la compra venta de propiedades hace de nosotros un referente en el sector inmobiliario en Mallorca. La confianza es el verdadero fundamento de las organizaciones y familias exitosas. Es la confianza la que nos permite comunicarnos para aclarar dudas y solucionar problemas. Partiendo de este concepto, el éxito de nuestra agencia inmobiliaria Mundo Pisos empieza con la confianza y transparencia que transmitimos a nuestros clientes, haciendo un trabajo que nos gusta, nos divierte y entusiasma además de tener experiencia, método y empatía.<html>");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(GoInfo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(GoRegistrar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(goLogin))
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(44, 670, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botonExit, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 647, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 676, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(39, 39, 39)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(botonExit, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                            .addComponent(AlquilerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(VentaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                            .addComponent(GoInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(8, 8, 8)
+                                            .addComponent(GoRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(goLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)))
+                .addComponent(jLabel19))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel19)
-                .addGap(164, 164, 164)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel19)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(GoInfo)
                     .addComponent(GoRegistrar)
                     .addComponent(goLogin))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(botonExit)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AlquilerBtn)
+                    .addComponent(VentaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(botonExit, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(113, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -184,6 +232,24 @@ public class Home_pre_login extends javax.swing.JFrame {
         vregistrar.setVisible(true);
     }//GEN-LAST:event_GoRegistrarActionPerformed
 
+    private void GoInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GoInfoActionPerformed
+        // TODO add your handling code here:
+        QuienesSomos somos = new QuienesSomos();
+        somos.setVisible(true);
+    }//GEN-LAST:event_GoInfoActionPerformed
+
+    private void AlquilerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlquilerBtnActionPerformed
+        // TODO add your handling code here:
+        Pisos_alquiler alquiler = new Pisos_alquiler();
+        alquiler.setVisible(true);
+    }//GEN-LAST:event_AlquilerBtnActionPerformed
+
+    private void VentaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VentaBtnActionPerformed
+        // TODO add your handling code here:
+        Pisos_venta venta = new Pisos_venta();
+        venta.setVisible(true);
+    }//GEN-LAST:event_VentaBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -221,15 +287,18 @@ public class Home_pre_login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AlquilerBtn;
     private javax.swing.JButton GoInfo;
     private javax.swing.JButton GoRegistrar;
+    private javax.swing.JButton VentaBtn;
     private javax.swing.JButton botonExit;
     private java.awt.Checkbox checkbox1;
     private javax.swing.JButton goLogin;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

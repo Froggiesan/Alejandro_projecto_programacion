@@ -17,12 +17,13 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
+import javax.mail.*;
 
 /**
  *
  * @author Alejandro y Marta
  */
-public class ConCita extends javax.swing.JFrame {
+public class Correo_electronico_Cita extends javax.swing.JFrame {
 
     /**
      * Creates new form ConCita
@@ -30,7 +31,7 @@ public class ConCita extends javax.swing.JFrame {
     
     
     
-    public ConCita() {
+    public Correo_electronico_Cita() {
         initComponents();
     }
 
@@ -185,10 +186,7 @@ public class ConCita extends javax.swing.JFrame {
                 .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel12)
                     .addComponent(Lugar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CalleLabel))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel19Layout.createSequentialGroup()
-                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(CalleLabel)
                     .addComponent(FechaHoraLabel)
                     .addComponent(CalleTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel19Layout.createSequentialGroup()
@@ -305,10 +303,11 @@ public class ConCita extends javax.swing.JFrame {
             
             JOptionPane.showMessageDialog(null, "Correo enviado"); //confirmacion del envio del mail.
             
-        } catch (AddressException ex) {
-            Logger.getLogger(ConCita.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        catch (AddressException ex) {
+            Logger.getLogger(Correo_electronico_Cita.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MessagingException ex) {
-            Logger.getLogger(ConCita.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Correo_electronico_Cita.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
@@ -342,20 +341,21 @@ public class ConCita extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ConCita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Correo_electronico_Cita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ConCita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Correo_electronico_Cita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ConCita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Correo_electronico_Cita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ConCita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Correo_electronico_Cita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ConCita().setVisible(true);
+                new Correo_electronico_Cita().setVisible(true);
             }
         });
     }

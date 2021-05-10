@@ -65,13 +65,13 @@
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jButton6" min="-2" pref="190" max="-2" attributes="0"/>
+                          <Component id="AgendaBtn" min="-2" pref="190" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton3" min="-2" pref="190" max="-2" attributes="0"/>
+                          <Component id="VentaBtn" min="-2" pref="190" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jButton4" min="-2" pref="190" max="-2" attributes="0"/>
-                          <Component id="jButton2" min="-2" pref="190" max="-2" attributes="0"/>
+                          <Component id="AlquileresBtn" min="-2" pref="190" max="-2" attributes="0"/>
+                          <Component id="CitaBtn" min="-2" pref="190" max="-2" attributes="0"/>
                           <Component id="BotonCalculadora" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -85,13 +85,13 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jButton6" alignment="3" min="-2" pref="112" max="-2" attributes="0"/>
-                              <Component id="jButton3" alignment="3" min="-2" pref="112" max="-2" attributes="0"/>
+                              <Component id="AgendaBtn" alignment="3" min="-2" pref="112" max="-2" attributes="0"/>
+                              <Component id="VentaBtn" alignment="3" min="-2" pref="112" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton4" min="-2" pref="112" max="-2" attributes="0"/>
+                          <Component id="AlquileresBtn" min="-2" pref="112" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton2" min="-2" pref="112" max="-2" attributes="0"/>
+                          <Component id="CitaBtn" min="-2" pref="112" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="BotonCalculadora" min="-2" pref="112" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="149" max="32767" attributes="0"/>
@@ -135,7 +135,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonExitActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton3">
+        <Component class="javax.swing.JButton" name="VentaBtn">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Iconos/VentaPiso64.png"/>
@@ -143,10 +143,10 @@
             <Property name="text" type="java.lang.String" value="En venta"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VentaBtnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="CitaBtn">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagenes/visita.png"/>
@@ -154,21 +154,27 @@
             <Property name="text" type="java.lang.String" value="Citas"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CitaBtnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton4">
+        <Component class="javax.swing.JButton" name="AlquileresBtn">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Iconos/alquilerPiso64.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="En alquiler"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AlquileresBtnActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton6">
+        <Component class="javax.swing.JButton" name="AgendaBtn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Agenda"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AgendaBtnActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

@@ -20,7 +20,8 @@ public class Excepcionespropias extends SQLException {
         super(msj_error);
         
     }
-    
+    //Las excepciones propias están lanzadas cuando hago las tablas para mostrar usuarios,clientes etc
+   
     
     
 }

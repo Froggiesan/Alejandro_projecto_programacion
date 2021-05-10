@@ -1,5 +1,9 @@
 package inmobiliaria_empesa;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -32,10 +36,10 @@ public class home_trabajadores extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         BotonCalculadora = new javax.swing.JButton();
         botonExit = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        VentaBtn = new javax.swing.JButton();
+        CitaBtn = new javax.swing.JButton();
+        AlquileresBtn = new javax.swing.JButton();
+        AgendaBtn = new javax.swing.JButton();
 
         jButton1.setText("Concerta cita");
 
@@ -62,26 +66,36 @@ public class home_trabajadores extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/VentaPiso64.png"))); // NOI18N
-        jButton3.setText("En venta");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        VentaBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/VentaPiso64.png"))); // NOI18N
+        VentaBtn.setText("En venta");
+        VentaBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                VentaBtnActionPerformed(evt);
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/visita.png"))); // NOI18N
-        jButton2.setText("Citas");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        CitaBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/visita.png"))); // NOI18N
+        CitaBtn.setText("Citas");
+        CitaBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                CitaBtnActionPerformed(evt);
             }
         });
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/alquilerPiso64.png"))); // NOI18N
-        jButton4.setText("En alquiler");
+        AlquileresBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/alquilerPiso64.png"))); // NOI18N
+        AlquileresBtn.setText("En alquiler");
+        AlquileresBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AlquileresBtnActionPerformed(evt);
+            }
+        });
 
-        jButton6.setText("Agenda");
+        AgendaBtn.setText("Agenda");
+        AgendaBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgendaBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -93,12 +107,12 @@ public class home_trabajadores extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(AgendaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(VentaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(AlquileresBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(CitaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(BotonCalculadora, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(553, Short.MAX_VALUE))
         );
@@ -108,12 +122,12 @@ public class home_trabajadores extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(AgendaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(VentaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(AlquileresBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(CitaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BotonCalculadora, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 149, Short.MAX_VALUE))
@@ -152,16 +166,37 @@ public class home_trabajadores extends javax.swing.JFrame {
         
     }//GEN-LAST:event_botonExitActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void CitaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CitaBtnActionPerformed
         // TODO add your handling code here:
-        ConCita cita = new ConCita();
+        Correo_electronico_Cita cita = new Correo_electronico_Cita();
         cita.setVisible(true);
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_CitaBtnActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void VentaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VentaBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+        Pisos_venta venta = new Pisos_venta();
+        venta.setVisible(true);
+    }//GEN-LAST:event_VentaBtnActionPerformed
+
+    private void AgendaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgendaBtnActionPerformed
+        // TODO add your handling code here:
+        Agenda_P agenda;
+        try {
+            agenda = new Agenda_P();
+            agenda.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(home_trabajadores.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_AgendaBtnActionPerformed
+
+    private void AlquileresBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlquileresBtnActionPerformed
+        // TODO add your handling code here:
+        Pisos_alquiler alquiler = new Pisos_alquiler();
+        alquiler.setVisible(true);
+                
+    }//GEN-LAST:event_AlquileresBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -200,13 +235,13 @@ public class home_trabajadores extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AgendaBtn;
+    private javax.swing.JButton AlquileresBtn;
     private javax.swing.JButton BotonCalculadora;
+    private javax.swing.JButton CitaBtn;
+    private javax.swing.JButton VentaBtn;
     private javax.swing.JButton botonExit;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton6;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

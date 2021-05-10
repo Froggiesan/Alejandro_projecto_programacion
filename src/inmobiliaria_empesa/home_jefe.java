@@ -198,7 +198,7 @@ public class home_jefe extends javax.swing.JFrame {
 
     private void BCitasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BCitasActionPerformed
         // TODO add your handling code here:
-        ConCita cita = new ConCita();
+        Correo_electronico_Cita cita = new Correo_electronico_Cita();
         cita.setVisible(true);
         
     }//GEN-LAST:event_BCitasActionPerformed

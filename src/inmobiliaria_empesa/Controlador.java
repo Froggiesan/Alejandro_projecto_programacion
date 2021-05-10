@@ -69,6 +69,27 @@ public class Controlador {
         }return mensaje;
         
     }
+    public String agregarVivienda(Connection con,Viviendas emp) throws SQLException{
+        PreparedStatement pst = null;
+        String mensaje="";
+        String sql="INSERT INTO \"SYSTEM\".\"VIVIENDA\" (CALLE, DESCRIPCION, PRECIO) VALUES (?,?,?)";
+        System.out.println("Ha llegado al metodo");
+        try {
+            pst = con.prepareStatement(sql);
+            pst.setString(1,emp.getCalle());
+            pst.setString(2, emp.getDescripcion());
+            pst.setInt(3, emp.getPrecio());
+            
+            mensaje="Vivienda guardada correctamente";
+            System.out.println(mensaje);
+            pst.execute();
+            pst.close();
+            System.out.println("Ha llegado al final del try de agregarVivienda");
+        } catch (Exception e) {
+            mensaje="No se ha podido agregar la vivienda correctamente \n "+e.getMessage();
+        }
+        return mensaje;
+    }
     public String modificarUsuario(Connection con,Usuario emp){
         PreparedStatement pst = null;
         String sql = "UPDATE USUARIO SET NOMBRE = ?,APELLIDO1=?,APELLIDO2=?,EDAD=?,NUM_TELEFONO = ?,CORREO = ?,SEXO = ?,NICK = ?,CONTRASENA = ?"
@@ -114,26 +135,7 @@ public class Controlador {
         return mensaje;
     }
     
-    public String agregarVivienda(Connection con,Viviendas emp) throws SQLException{
-        PreparedStatement pst = null;
-        String mensaje="";
-        String sql="INSERT INTO \"SYSTEM\".\"VIVIENDA\" (CALLE, DESCRIPCION, PRECIO) VALUES (?,?,?)";
-        System.out.println("Ha llegado al metodo");
-        try {
-            pst.setString(1,emp.getCalle());
-            pst.setString(2, emp.getDescripcion());
-            pst.setInt(3, emp.getPrecio());
-            
-            mensaje="Vivienda guardada correctamente";
-            System.out.println(mensaje);
-            pst.execute();
-            pst.close();
-            System.out.println("Ha llegado al try del metodo");
-        } catch (Exception e) {
-            mensaje="No se ha podido agregar la vivienda correctamente \n "+e.getMessage();
-        }
-        return mensaje;
-    }
+    
     public String agregarVenta(Connection con,Ventas emp){
         PreparedStatement pst = null;
         String sql ="INSERT INTO \"SYSTEM\".\"VENTA\" (ID_VIVIENDA)"
@@ -276,7 +278,10 @@ public class Controlador {
             System.out.println("Ha llegado a su final");
             
             
-        } catch (SQLException e) {
+        }catch(Excepcionespropias e){
+            System.out.println("Ha habido un problema al eliminar el trabajador , consultar al administrador");
+        }
+        catch (SQLException e) {
             mensaje="No se ha podido borrar correctamente \n "+e.getMessage();
             e.printStackTrace();
             System.out.println("algo que ver");
@@ -304,7 +309,10 @@ public class Controlador {
                 Usuarios.add(Arrays.copyOf(filas, 9));
             }
             return Usuarios.toArray(String[][]::new);
-        } catch (Exception e) {
+        }
+        catch(Excepcionespropias e){
+            System.out.println("Ha habido un problema al mostrar la tabla , consultar al administrador");
+        }catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se ha podido mosrar la tabla");
             e.printStackTrace();
         }
@@ -324,7 +332,10 @@ public class Controlador {
             pst.execute();
             pst.close();
             
-        } catch (Exception e) {
+        }
+        catch(Excepcionespropias e){
+            System.out.println("Ha habido un problema al modificar el trabajador , consultar al administrador");
+        }catch (Exception e) {
             mensaje="no se ha podido modificar correctamente \n "+e.getMessage();
         }return mensaje;
     }
@@ -383,7 +394,10 @@ public class Controlador {
                 Usuarios.add(Arrays.copyOf(filas, 4));
             }
             return Usuarios.toArray(String[][]::new);
-        } catch (Exception e) {
+        }catch(Excepcionespropias e){
+            System.out.println("Ha habido un problema al mostrar la tabla , consultar al administrador");
+        }
+        catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se ha podido mostrar la tabla");
             e.printStackTrace();
         }
@@ -412,7 +426,10 @@ public class Controlador {
                 
             }
             return Usuarios.toArray(String[][]::new);
-        } catch (Exception e) {
+        }
+        catch(Excepcionespropias e){
+            System.out.println("Ha habido un problema al mostrar la tabla , consultar al administrador");
+        }catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se ha podido mosrar la tabla");
             e.printStackTrace();
         }
