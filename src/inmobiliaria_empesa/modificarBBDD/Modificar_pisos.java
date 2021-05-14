@@ -10,8 +10,11 @@ import inmobiliaria_empresa_Clases_Viviendas.Ventas;
 import inmobiliaria_empresa_Clases_Viviendas.Viviendas;
 import inmobiliaria_empresa_Clases_Viviendas.fotos_vivienda;
 import inmobiliaria_empresa_clases_usuarios.Usuario;
+import java.io.File;
 import java.sql.SQLException;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -345,9 +348,17 @@ public class Modificar_pisos extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         JFileChooser chooser = new JFileChooser();
+        chooser.setMultiSelectionEnabled(true);
         int returnVal = chooser.showOpenDialog(this);
         if (returnVal == JFileChooser.APPROVE_OPTION){
-            String ruta = chooser.getSelectedFile().getAbsolutePath();
+            List<String> files = Arrays
+                    .stream(chooser.getSelectedFiles())
+                    .map(File::getAbsolutePath)
+                    .collect(Collectors.toList());
+                    
+            String ruta = String.join(",", files);
+            
+//String ruta = chooser.getSelectedFile().getAbsolutePath();
             this.foto_seleccionada = ruta;
             System.out.println(this.foto_seleccionada);
             System.out.println("Se esta ejecutando ese metodo");
