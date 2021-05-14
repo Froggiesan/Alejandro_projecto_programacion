@@ -53,7 +53,6 @@ public class home_trabajadores extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(204, 255, 204));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Home", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ebrima", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
 
-        BotonCalculadora.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/calculator_icon-icons.com_50442.png"))); // NOI18N
         BotonCalculadora.setText("Calculadora");
         BotonCalculadora.setMaximumSize(new java.awt.Dimension(190, 80));
         BotonCalculadora.setMinimumSize(new java.awt.Dimension(190, 80));
@@ -63,7 +62,6 @@ public class home_trabajadores extends javax.swing.JFrame {
             }
         });
 
-        botonExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Salir.png"))); // NOI18N
         botonExit.setText("Salir");
         botonExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,7 +69,6 @@ public class home_trabajadores extends javax.swing.JFrame {
             }
         });
 
-        VentaBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/VentaPiso64.png"))); // NOI18N
         VentaBtn.setText("En venta");
         VentaBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,7 +76,6 @@ public class home_trabajadores extends javax.swing.JFrame {
             }
         });
 
-        CitaBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/visita.png"))); // NOI18N
         CitaBtn.setText("Citas");
         CitaBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,7 +83,6 @@ public class home_trabajadores extends javax.swing.JFrame {
             }
         });
 
-        AlquileresBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/alquilerPiso64.png"))); // NOI18N
         AlquileresBtn.setText("En alquiler");
         AlquileresBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

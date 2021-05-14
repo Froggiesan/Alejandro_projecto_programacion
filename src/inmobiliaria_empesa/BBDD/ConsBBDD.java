@@ -114,19 +114,15 @@ public class ConsBBDD extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(0, 0, 0));
 
         ventasGaP.setBackground(new java.awt.Color(255, 255, 255));
-        ventasGaP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Ventas.png"))); // NOI18N
         ventasGaP.setText("Ventas >");
 
         PrecioPaG.setBackground(new java.awt.Color(255, 255, 255));
-        PrecioPaG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasaBBDD.png"))); // NOI18N
         PrecioPaG.setText("Valor <");
 
         precioGaP.setBackground(new java.awt.Color(255, 255, 255));
-        precioGaP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CasaBBDD.png"))); // NOI18N
         precioGaP.setText("Valor >");
 
         ventasPaG.setBackground(new java.awt.Color(255, 255, 255));
-        ventasPaG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Ventas.png"))); // NOI18N
         ventasPaG.setText("Ventas <");
         ventasPaG.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

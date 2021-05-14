@@ -150,7 +150,6 @@ public class Correo_electronico_Cita extends javax.swing.JFrame {
 
         hora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "8:00", "8:30", "9:00", "9:30", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "16:00", "16:30", "17:30", "18:00", "18:30", "19:00", "19:30" }));
 
-        EnviarBotton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/enviar_59988.png"))); // NOI18N
         EnviarBotton.setText("Enviar");
         EnviarBotton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

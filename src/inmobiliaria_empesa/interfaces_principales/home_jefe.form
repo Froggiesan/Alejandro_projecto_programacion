@@ -119,9 +119,6 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="BCalculadora">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/calculator_icon-icons.com_50442.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Calculadora"/>
           </Properties>
           <Events>
@@ -130,9 +127,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="botonExit">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/Salir.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Salir"/>
           </Properties>
           <Events>
@@ -141,9 +135,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="botonventa">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Iconos/VentaPiso64.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Pisos en venta"/>
           </Properties>
           <Events>
@@ -152,9 +143,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="BCitas">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/visita.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Citas"/>
           </Properties>
           <Events>
@@ -163,9 +151,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="botonalquiler">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Iconos/alquilerPiso64.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Alquileres"/>
           </Properties>
           <Events>
@@ -174,9 +159,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="BBDDBoton">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/icono_BBDD62basico.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Base de datos"/>
           </Properties>
           <Events>
@@ -185,9 +167,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="botonModPisos">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Iconos/modificar64.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Modificar pisos"/>
           </Properties>
           <Events>
@@ -196,9 +175,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="BCrearTrabajador">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Iconos/empleado64.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Crear cuenta trabajador"/>
           </Properties>
           <Events>

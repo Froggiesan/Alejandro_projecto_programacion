@@ -56,7 +56,6 @@ public class home_jefe extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(204, 255, 204));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Home", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ebrima", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
 
-        BCalculadora.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/calculator_icon-icons.com_50442.png"))); // NOI18N
         BCalculadora.setText("Calculadora");
         BCalculadora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,7 +63,6 @@ public class home_jefe extends javax.swing.JFrame {
             }
         });
 
-        botonExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Salir.png"))); // NOI18N
         botonExit.setText("Salir");
         botonExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,7 +70,6 @@ public class home_jefe extends javax.swing.JFrame {
             }
         });
 
-        botonventa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/VentaPiso64.png"))); // NOI18N
         botonventa.setText("Pisos en venta");
         botonventa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,7 +77,6 @@ public class home_jefe extends javax.swing.JFrame {
             }
         });
 
-        BCitas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/visita.png"))); // NOI18N
         BCitas.setText("Citas");
         BCitas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,7 +84,6 @@ public class home_jefe extends javax.swing.JFrame {
             }
         });
 
-        botonalquiler.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/alquilerPiso64.png"))); // NOI18N
         botonalquiler.setText("Alquileres");
         botonalquiler.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,7 +91,6 @@ public class home_jefe extends javax.swing.JFrame {
             }
         });
 
-        BBDDBoton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono_BBDD62basico.png"))); // NOI18N
         BBDDBoton.setText("Base de datos");
         BBDDBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,7 +98,6 @@ public class home_jefe extends javax.swing.JFrame {
             }
         });
 
-        botonModPisos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/modificar64.png"))); // NOI18N
         botonModPisos.setText("Modificar pisos");
         botonModPisos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,7 +105,6 @@ public class home_jefe extends javax.swing.JFrame {
             }
         });
 
-        BCrearTrabajador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/empleado64.png"))); // NOI18N
         BCrearTrabajador.setText("Crear cuenta trabajador");
         BCrearTrabajador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -78,7 +78,6 @@ public class ModificarTrabajador extends javax.swing.JFrame {
         ModificarButton = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         IdTrabajadorTextfield = new javax.swing.JTextField();
-        jLabel19 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -124,8 +123,6 @@ public class ModificarTrabajador extends javax.swing.JFrame {
 
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("ID Trabajador");
-
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo_empresa/64.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -177,10 +174,6 @@ public class ModificarTrabajador extends javax.swing.JFrame {
                                     .addComponent(IDBORRARjTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel4))
                                 .addGap(21, 21, 21))))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel19)
-                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -219,9 +212,7 @@ public class ModificarTrabajador extends javax.swing.JFrame {
                         .addComponent(IDBORRARjTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(120, 120, 120)
                         .addComponent(deleteBotton)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addComponent(jLabel19)
-                .addContainerGap())
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -295,7 +286,6 @@ public class ModificarTrabajador extends javax.swing.JFrame {
     private javax.swing.JTextField VentasjTextField3;
     private javax.swing.JButton deleteBotton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
