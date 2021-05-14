@@ -22,7 +22,7 @@ public class Home_pre_login extends javax.swing.JFrame {
         initComponents();
         
     }
-   
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

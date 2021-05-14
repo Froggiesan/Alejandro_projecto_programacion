@@ -76,13 +76,14 @@ public class Controlador {
     public String agregarVivienda(Connection con,Viviendas emp) throws SQLException{
         PreparedStatement pst = null;
         String mensaje="";
-        String sql="INSERT INTO \"SYSTEM\".\"VIVIENDA\" (CALLE, DESCRIPCION, PRECIO) VALUES (?,?,?)";
+        String sql="INSERT INTO \"SYSTEM\".\"VIVIENDA\" (CALLE, DESCRIPCION, PRECIO, FOTOS) VALUES (?,?,?,?)";
         System.out.println("Ha llegado al metodo");
         try {
             pst = con.prepareStatement(sql);
             pst.setString(1,emp.getCalle());
             pst.setString(2, emp.getDescripcion());
             pst.setInt(3, emp.getPrecio());
+            pst.setString(4,emp.getFoto());
             
             mensaje="Vivienda guardada correctamente";
             System.out.println(mensaje);

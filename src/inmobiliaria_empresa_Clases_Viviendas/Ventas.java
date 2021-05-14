@@ -23,15 +23,7 @@ public class Ventas extends Viviendas {
         
     }
 
-    @Override
-    public void next_foto() {
-        super.next_foto(); //To change body of generated methods, choose Tools | Templates.
-    }
 
-    @Override
-    public void past_foto() {
-        super.past_foto(); //To change body of generated methods, choose Tools | Templates.
-    }
 
     @Override
     public void rellenar_formulario_cita() {
