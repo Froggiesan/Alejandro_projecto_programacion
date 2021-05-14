@@ -338,7 +338,7 @@ public class Modificar_pisos extends javax.swing.JFrame {
         // TODO add your handling code here:
         Viviendas vivi = new Viviendas();
         Viviendas meter = new Viviendas();
-        String foto_seleccionada = this.fotoSeleccionada ? this.fotoSeleccionada != null : "";
+        String foto_seleccionada = this.fotoSeleccionada;
 
         String calle=calletextField.getText();
         String descripcion=DescripcionTextArea1.getText();
