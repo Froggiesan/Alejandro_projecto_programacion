@@ -146,7 +146,7 @@ public class Controlador {
                 + " VALUES (?);";
         try {
             pst = con.prepareStatement(sql);
-            pst.setInt(1, emp.getId_viviendas());
+            pst.setInt(1, emp.getId());
             mensaje="guardado correctamente";
             System.out.println(mensaje);
             pst.execute();
@@ -162,7 +162,7 @@ public class Controlador {
                 + " VALUES (?);";
         try {
             pst = con.prepareStatement(sql);
-            pst.setInt(1, emp.getId_viviendas());
+            pst.setInt(1, emp.getId());
             mensaje="guardado correctamente";
             System.out.println(mensaje);
             pst.execute();

@@ -47,7 +47,7 @@ public class acceso_a_BD{
         }
     }
 
-    public static void main(String[] args) throws SQLException, Excepcionespropias{
+    public static void conexion(String[] args) throws SQLException, Excepcionespropias{
         // Obtenemos una conexion agrupada
         PoolDataSource pds = PoolDataSourceFactory.getPoolDataSource();
         // Establecemos las conexiones a ORacle
