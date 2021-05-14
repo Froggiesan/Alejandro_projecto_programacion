@@ -143,7 +143,11 @@ public class Viviendas {
     public void setFotos(ArrayList fotos) {
         this.fotos = fotos;
     }
-   
+    public String [] fotosViviendas(){
+        
+        
+      return null; 
+    }
    
    
    
