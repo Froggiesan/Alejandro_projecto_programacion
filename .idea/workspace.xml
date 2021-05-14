@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cbb8ac4d-2b25-49fd-a67d-bf3b8efb70f3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/build/classes/inmobiliaria_empesa/Excepcionespropias.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/inmobiliaria_empesa/Excepcionespropias.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/inmobiliaria_empesa/Iniciar_Programa.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/inmobiliaria_empesa/Iniciar_Programa.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/inmobiliaria_empesa/interfaces_principales/Home_pre_login$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/inmobiliaria_empesa/interfaces_principales/Home_pre_login$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/inmobiliaria_empesa/interfaces_principales/Home_pre_login$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/inmobiliaria_empesa/interfaces_principales/Home_pre_login$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/inmobiliaria_empesa/interfaces_principales/Home_pre_login$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/inmobiliaria_empesa/interfaces_principales/Home_pre_login$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/inmobiliaria_empesa/interfaces_principales/Home_pre_login$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/inmobiliaria_empesa/interfaces_principales/Home_pre_login$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/inmobiliaria_empesa/interfaces_principales/Home_pre_login$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/inmobiliaria_empesa/interfaces_principales/Home_pre_login$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/inmobiliaria_empesa/interfaces_principales/Home_pre_login$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/inmobiliaria_empesa/interfaces_principales/Home_pre_login$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/inmobiliaria_empesa/interfaces_principales/Home_pre_login.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/inmobiliaria_empesa/interfaces_principales/Home_pre_login.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/inmobiliaria_empesa/interfaces_principales/login$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/inmobiliaria_empesa/interfaces_principales/login$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/inmobiliaria_empesa/interfaces_principales/login$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/inmobiliaria_empesa/interfaces_principales/login$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/inmobiliaria_empesa/interfaces_principales/login$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/inmobiliaria_empesa/interfaces_principales/login$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/inmobiliaria_empesa/interfaces_principales/login$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/inmobiliaria_empesa/interfaces_principales/login$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/inmobiliaria_empesa/interfaces_principales/login$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/inmobiliaria_empesa/interfaces_principales/login$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/inmobiliaria_empesa/interfaces_principales/login.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/inmobiliaria_empesa/interfaces_principales/login.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1sX589pPN3ulI4BbG8mZKJqnLPf" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Alex_tarea10" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cbb8ac4d-2b25-49fd-a67d-bf3b8efb70f3" name="Default Changelist" comment="" />
+      <created>1621005931512</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1621005931512</updated>
+    </task>
+    <servers />
+  </component>
+</project>

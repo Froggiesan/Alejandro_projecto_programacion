@@ -12,6 +12,7 @@ import inmobiliaria_empresa_Clases_Viviendas.fotos_vivienda;
 import inmobiliaria_empresa_clases_usuarios.Usuario;
 import java.sql.SQLException;
 import java.util.Arrays;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -25,6 +26,7 @@ public class Modificar_pisos extends javax.swing.JFrame {
     private Viviendas ebo = new Viviendas();
     private fotos_vivienda fotos = new fotos_vivienda();
     private fotos_vivienda meterFotos = new fotos_vivienda();
+    private String foto_seleccionada = null;
     
     /**
      * Creates new form Modificar_pisos
@@ -384,6 +386,11 @@ public class Modificar_pisos extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        JFileChooser chooser = new JFileChooser();
+        int returnVal = chooser.showOpenDialog(this);
+        if (returnVal == JFileChooser.APPROVE_OPTION){
+            String ruta = chooser.getSelectedFile().getAbsolutePath();
+        }
         
         
     }//GEN-LAST:event_jButton2ActionPerformed
