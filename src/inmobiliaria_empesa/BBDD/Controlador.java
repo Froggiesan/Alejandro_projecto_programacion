@@ -77,7 +77,7 @@ public class Controlador {
         PreparedStatement pst = null;
         String mensaje="";
         String sql="INSERT INTO \"SYSTEM\".\"VIVIENDA\" (CALLE, DESCRIPCION, PRECIO, FOTOS) VALUES (?,?,?,?)";
-        System.out.println("Ha llegado al metodo");
+        System.out.println(emp.getFoto()+"Algo asi");
         try {
             pst = con.prepareStatement(sql);
             pst.setString(1,emp.getCalle());
