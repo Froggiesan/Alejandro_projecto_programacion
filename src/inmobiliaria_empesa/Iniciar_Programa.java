@@ -1,6 +1,8 @@
 
 package inmobiliaria_empesa;
 
+import inmobiliaria_empesa.interfaces_principales.*;
+
 
 public class Iniciar_Programa {
 
