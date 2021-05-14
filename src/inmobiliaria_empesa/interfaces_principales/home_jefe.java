@@ -250,8 +250,8 @@ public class home_jefe extends javax.swing.JFrame {
 
     private void botonModPisosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModPisosActionPerformed
         // TODO add your handling code here:
-        Modificar_pisos mod = new Modificar_pisos();
-        mod.setVisible(true);
+        Modificar_pisos modP = new Modificar_pisos();
+        modP.setVisible(true);
     }//GEN-LAST:event_botonModPisosActionPerformed
 
     /**
