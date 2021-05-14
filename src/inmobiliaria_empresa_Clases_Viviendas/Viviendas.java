@@ -17,7 +17,7 @@ public class Viviendas {
     private int id;
     private String descripcion;
     private int precio;
-    private ArrayList fotos;
+    private String fotos;
     public Viviendas(String calle,int id,String descripcion){
         this.calle=calle;
         this.descripcion=descripcion;
@@ -136,13 +136,14 @@ public class Viviendas {
         
     }
 
-    public ArrayList getFotos() {
-        return fotos;
+    public void setFoto(String ruta){
+        this.fotos = ruta;
     }
 
-    public void setFotos(ArrayList fotos) {
-        this.fotos = fotos;
+    public String getFoto(){
+        return this.fotos;
     }
+
     public String [] fotosViviendas(){
         
         
