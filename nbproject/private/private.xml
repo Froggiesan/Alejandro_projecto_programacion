@@ -3,33 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/Clases_viviendas/Ventas.java</file>
             <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/inmobiliaria_empesa/interfaces_principales/home_jefe.java</file>
-            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/inmobiliaria_empesa/modificarBBDD/ModificarTrabajador.java</file>
-            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/inmobiliaria_empesa/ventanasPUsuarios/Correo_electronico_Cita.java</file>
-            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/inmobiliaria_empesa/modificarBBDD/addTrabajador.java</file>
-            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/inmobiliaria_empesa/interfaces_principales/login.java</file>
-            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/inmobiliaria_empesa/Iniciar_Programa.java</file>
-            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/inmobiliaria_empesa/ventanasPUsuarios/Pisos_alquiler.java</file>
-            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/inmobiliaria_empesa/BBDD/Controlador.java</file>
-            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/inmobiliaria_empesa/interfaces_principales/home_trabajadores.java</file>
             <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/inmobiliaria_empesa/interfaces_principales/Home_pre_login.java</file>
-            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/clases_usuarios/Trabajador.java</file>
-            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/clases_usuarios/Cliente.java</file>
-            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/Clases_viviendas/Alquileres.java</file>
+            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/inmobiliaria_empesa/modificarBBDD/ModificarTrabajador.java</file>
             <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/inmobiliaria_empesa/BBDD/acceso_a_BD.java</file>
-            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/Clases_viviendas/fotos_vivienda.java</file>
-            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/inmobiliaria_empesa/BBDD/Agenda_P.java</file>
-            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/inmobiliaria_empesa/interfaces_principales/home_clientes.java</file>
-            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/inmobiliaria_empesa/BBDD/ConsBBDD.java</file>
-            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/inmobiliaria_empesa/ventanasPUsuarios/Pisos_venta.java</file>
-            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/clases_usuarios/Jefe.java</file>
-            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/Clases_viviendas/Viviendas.java</file>
-            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/inmobiliaria_empesa/interfaces_principales/QuienesSomos.java</file>
-            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/inmobiliaria_empesa/interfaces_principales/Registrar.java</file>
-            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/inmobiliaria_empesa/ventanasPUsuarios/Calculadora.java</file>
+            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/inmobiliaria_empresa_Clases_Viviendas/Alquileres.java</file>
+            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/inmobiliaria_empesa/Iniciar_Programa.java</file>
             <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/inmobiliaria_empesa/modificarBBDD/Modificar_pisos.java</file>
-            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/clases_usuarios/Usuario.java</file>
+            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/inmobiliaria_empesa/BBDD/Agenda_P.java</file>
+            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/inmobiliaria_empesa/BBDD/Controlador.java</file>
+            <file>file:/C:/Users/Alex/Desktop/Proyectos/imo/InmoSA-master/InmoSA-master/src/inmobiliaria_empresa_Clases_Viviendas/Ventas.java</file>
         </group>
     </open-files>
 </project-private>
