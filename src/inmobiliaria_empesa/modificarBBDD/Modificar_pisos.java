@@ -28,6 +28,7 @@ public class Modificar_pisos extends javax.swing.JFrame {
     private Viviendas ebo = new Viviendas();
     private fotos_vivienda fotos = new fotos_vivienda();
     private fotos_vivienda meterFotos = new fotos_vivienda();
+    private String fotoSeleccionada = null;
     
     /**
      * Creates new form Modificar_pisos
@@ -337,6 +338,7 @@ public class Modificar_pisos extends javax.swing.JFrame {
         // TODO add your handling code here:
         Viviendas vivi = new Viviendas();
         Viviendas meter = new Viviendas();
+        String foto_seleccionada = this.fotoSeleccionada ? this.fotoSeleccionada != null : "";
 
         String calle=calletextField.getText();
         String descripcion=DescripcionTextArea1.getText();
@@ -394,7 +396,7 @@ public class Modificar_pisos extends javax.swing.JFrame {
         int returnVal = chooser.showOpenDialog(this);
         if(returnVal == JFileChooser.APPROVE_OPTION) {
             String rutaArchivo = chooser.getSelectedFile().getAbsolutePath();
-            Path ruta = Paths.get(rutaArchivo);
+            this.fotoSeleccionada = rutaArchivo;
 
         }
 
