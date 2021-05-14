@@ -17,13 +17,22 @@ public class Viviendas {
     private int id;
     private String descripcion;
     private int precio;
-    private ArrayList fotos;
+    private String foto;
     public Viviendas(String calle,int id,String descripcion){
         this.calle=calle;
         this.descripcion=descripcion;
         this.id=id;
         //fotos=new ArrayList;
     }
+    
+    public String getFoto(){
+        return this.foto;
+    }
+    
+    public void setFoto(String url){
+        this.foto = url;
+    }
+    
     public Viviendas(){
         
     }
@@ -31,13 +40,6 @@ public class Viviendas {
     public void rellenar_formulario_cita(){
         
     }
-    public void next_foto(){
-        
-    }
-    public void past_foto(){
-        
-    }
-
     public String getCalle() {
         return calle;
     }
@@ -135,16 +137,6 @@ public class Viviendas {
         return consulta.mostrarViviendaPrecioPaG(conn, Tabla);
         
     }
-
-    public ArrayList getFotos() {
-        return fotos;
-    }
-
-    public void setFotos(ArrayList fotos) {
-        this.fotos = fotos;
-    }
-   
-   
    
    
 }

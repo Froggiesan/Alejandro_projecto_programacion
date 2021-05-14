@@ -340,6 +340,7 @@ public class Modificar_pisos extends javax.swing.JFrame {
         vivi.setCalle(calle);
         vivi.setDescripcion(descripcion);
         vivi.setPrecio(precio);
+        vivi.setFoto(this.foto_seleccionada);
         System.out.println("Aqui ha llegado");
         try {
             meter.agregarVivienda(vivi);
@@ -390,11 +391,17 @@ public class Modificar_pisos extends javax.swing.JFrame {
         int returnVal = chooser.showOpenDialog(this);
         if (returnVal == JFileChooser.APPROVE_OPTION){
             String ruta = chooser.getSelectedFile().getAbsolutePath();
+            this.foto_seleccionada = ruta;
         }
-        
-        
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    public static void main(String[] args) {
+         java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Modificar_pisos().setVisible(true);
+            }
+        });
+    }
     /**
      * @param args the command line arguments
      */
